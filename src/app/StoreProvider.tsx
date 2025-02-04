@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { Provider } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { makeStore, AppStore } from "../lib/store";
@@ -16,14 +16,16 @@ export default function StoreProvider({
   children,
   initialState,
 }: {
-  children: React.ReactNode;
-  initialState: TInitialData;
+  children: ReactNode;
+  initialState: TInitialData | null;
 }) {
   const storeRef = useRef<AppStore | null>(null);
   if (!storeRef.current) {
     // Create the store instance the first time this renders
     storeRef.current = makeStore();
-    storeRef.current.dispatch(initializeStore(initialState));
+    if (initialState) {
+      storeRef.current.dispatch(initializeStore(initialState));
+    }
   }
 
   const handleGetNominateds = async () => {

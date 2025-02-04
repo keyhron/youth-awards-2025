@@ -1,18 +1,18 @@
-'use client';
-import Link from 'next/link';
-import { useAppDispatch, useAppSelector } from '@/lib/hooks';
-import Button from '../atoms/Button';
-import Label from '../atoms/Label';
-import { useEffect } from 'react';
-import { getVotes, updateNominateds } from '@/services/firebaseService';
-import { INominated, IVote } from '@/interfaces';
-import dayjs from 'dayjs';
+"use client";
+import Link from "next/link";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import Button from "../atoms/Button";
+import Label from "../atoms/Label";
+import { useEffect } from "react";
+import { getVotes, updateNominateds } from "@/services/firebaseService";
+import { INominated, IVote } from "@/interfaces";
+import dayjs from "dayjs";
 import {
   resetWinners,
   setVotes,
   addWinners,
-} from '@/lib/reducers/nominatedsReducer';
-import { enabledNewVote } from '@/data';
+} from "@/lib/reducers/nominatedsReducer";
+import { enabledNewVote } from "@/data";
 
 const Votes = () => {
   const dispatch = useAppDispatch();
@@ -20,9 +20,9 @@ const Votes = () => {
   const isReady = useAppSelector((state) => state.auth.isReady);
 
   const nominateds = useAppSelector((state) => state.nominateds.nominateds);
-  const categories = useAppSelector(
-    (state) => state.nominateds.categories
-  ).filter((item) => item.active);
+  const categories = useAppSelector((state) =>
+    state.nominateds.categories.filter((item) => item.active)
+  );
   const votes = useAppSelector((state) => state.nominateds.votes);
 
   const isAuth = isAuthenticated && isReady;
@@ -113,7 +113,7 @@ const Votes = () => {
 
     dispatch(addWinners(finalNominateds));
     await updateNominateds(finalNominateds);
-    alert('Se han generado los ganadores');
+    alert("Se han generado los ganadores");
   };
 
   const handleReset = async () => {
@@ -131,7 +131,7 @@ const Votes = () => {
 
     dispatch(resetWinners(nominatedsToUpdate));
     await updateNominateds(nominatedsToUpdate, votes);
-    alert('Votos reiniciados');
+    alert("Votos reiniciados");
     // await deleteVotes()
   };
   return (
@@ -170,7 +170,7 @@ const Votes = () => {
                 </th>
                 <td className="px-6 py-4">{item.fullname}</td>
                 <td className="px-6 py-4">
-                  {dayjs(item.created).format('DD-MM-YYYY hh:mm A')}
+                  {dayjs(item.created).format("DD-MM-YYYY hh:mm A")}
                 </td>
               </tr>
             ))}
@@ -182,7 +182,7 @@ const Votes = () => {
               <td className="px-6 py-3">
                 {votes.length > 0
                   ? `${votes.length} votos`
-                  : 'No hay votos aún'}
+                  : "No hay votos aún"}
               </td>
             </tr>
           </tfoot>
@@ -210,4 +210,3 @@ const Votes = () => {
 };
 
 export default Votes;
-

@@ -9,7 +9,7 @@ const OldWinners = () => {
   const categories = useAppSelector((state) => state.nominateds.categories);
   const winners = useAppSelector((state) => state.nominateds.winners);
 
-  if (winners.length < 1) return null;
+  if (!winners.length) return null;
 
   return (
     <section className="min-h-screen py-20 flex flex-col container mx-auto px-4">

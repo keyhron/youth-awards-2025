@@ -1,16 +1,16 @@
-'use client';
-import { useState } from 'react';
-import Label from '../atoms/Label';
-import FormControl from '../molecules/FormControl';
-import Button from '../atoms/Button';
-import { loginService } from '@/services/firebaseService';
-import { useAppDispatch, useAppSelector } from '@/lib/hooks';
-import { signIn } from '@/lib/reducers/authReducer';
+"use client";
+import { useState } from "react";
+import Label from "../atoms/Label";
+import FormControl from "../molecules/FormControl";
+import Button from "../atoms/Button";
+import { loginService } from "@/services/firebaseService";
+import { useAppDispatch } from "@/lib/hooks";
+import { signIn } from "@/lib/reducers/authReducer";
 
 const LoginForm = () => {
   const [data, setData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
   const dispatch = useAppDispatch();
 
@@ -19,12 +19,12 @@ const LoginForm = () => {
   const handleSubmit = async () => {
     try {
       const res = await loginService(data);
-      console.log('COOL');
+      console.log("COOL");
       dispatch(
         signIn({
-          uid: res.user.uid,
-          email: res.user.email,
-          name: res.user.displayName,
+          uid: res?.user.uid,
+          email: res?.user.email,
+          name: res?.user.displayName,
         })
       );
     } catch (error) {
@@ -41,27 +41,27 @@ const LoginForm = () => {
           <FormControl
             label="Correo electrónico"
             inputProps={{
-              id: 'email',
-              type: 'email',
+              id: "email",
+              type: "email",
               value: data.email,
               onChange: (e) => setData({ ...data, email: e.target.value }),
               required: true,
             }}
             labelProps={{
-              htmlFor: 'email',
+              htmlFor: "email",
             }}
           />
           <FormControl
             label="Contraseña"
             inputProps={{
-              id: 'password',
-              type: 'password',
+              id: "password",
+              type: "password",
               value: data.password,
               onChange: (e) => setData({ ...data, password: e.target.value }),
               required: true,
             }}
             labelProps={{
-              htmlFor: 'password',
+              htmlFor: "password",
             }}
           />
         </div>
@@ -77,4 +77,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-

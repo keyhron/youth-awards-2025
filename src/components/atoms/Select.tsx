@@ -1,15 +1,18 @@
-import { twMerge } from 'tailwind-merge';
+import { SelectHTMLAttributes } from "react";
+import { twMerge } from "tailwind-merge";
 
-export interface ISelect
-  extends React.SelectHTMLAttributes<HTMLSelectElement> {}
-
-const Select = ({ className, children, disabled, ...rest }: ISelect) => {
+const Select = ({
+  className,
+  children,
+  disabled,
+  ...rest
+}: SelectHTMLAttributes<HTMLSelectElement>) => {
   return (
     <select
       disabled={disabled}
       className={twMerge(
-        'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm outline-none focus:ring-primary focus:border-primary block w-full p-2.5',
-        `${disabled && 'opacity-50'}`,
+        "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm outline-none focus:ring-primary focus:border-primary block w-full p-2.5",
+        `${disabled && "opacity-50"}`,
         className
       )}
       {...rest}
@@ -20,4 +23,3 @@ const Select = ({ className, children, disabled, ...rest }: ISelect) => {
 };
 
 export default Select;
-

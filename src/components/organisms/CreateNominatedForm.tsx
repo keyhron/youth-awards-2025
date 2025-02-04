@@ -1,14 +1,12 @@
-'use client';
-// import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import Button from '../atoms/Button';
-import Label from '../atoms/Label';
-// import Input from '../atoms/Input';
-import { useAppSelector } from '@/lib/hooks';
-import FormControl from '../molecules/FormControl';
-import Image from 'next/image';
-import { createNominated } from '@/services/firebaseService';
-import { twMerge } from 'tailwind-merge';
+"use client";
+import { useState } from "react";
+import Button from "../atoms/Button";
+import Label from "../atoms/Label";
+import { useAppSelector } from "@/lib/hooks";
+import FormControl from "../molecules/FormControl";
+import Image from "next/image";
+import { createNominated } from "@/services/firebaseService";
+import { twMerge } from "tailwind-merge";
 
 export interface INewNominated {
   name: string;
@@ -21,31 +19,33 @@ const CreateNominatedForm = ({
 }: {
   nominatedsImage: string[];
 }) => {
-  const [nominated, setNominated] = useState<INewNominated>({
-    name: '',
-    category: '',
-    image: '',
-  });
+  const [nominatedName, setNominatedName] = useState("");
+  const [nominatedCategory, setNominatedCategory] = useState("");
+  const [nominatedImage, setNominatedImage] = useState("");
   const categories = useAppSelector((state) => state.nominateds.categories);
 
   const handleSubmit = async () => {
     try {
-      if (!nominated.name || !nominated.category || !nominated.image) {
-        return alert('Todos los campos son obligatorios');
+      if (!nominatedName || !nominatedCategory || !nominatedImage) {
+        return alert("Todos los campos son obligatorios");
       }
 
-      await createNominated(nominated);
-      setNominated({
-        name: '',
-        category: '',
-        image: '',
+      // Submit data
+      await createNominated({
+        name: nominatedName,
+        category: nominatedCategory,
+        image: nominatedImage,
       });
-      alert('Nominado creado correctamente');
+
+      // Clear states
+      setNominatedCategory("");
+      setNominatedImage("");
+      setNominatedName("");
+      alert("Nominado creado correctamente");
     } catch (error) {
       alert(error);
     }
   };
-  console.log(nominated);
 
   return (
     <section className="min-h-screen py-20 flex flex-col container mx-auto px-4">
@@ -60,18 +60,16 @@ const CreateNominatedForm = ({
           <FormControl
             label="Nombres"
             inputProps={{
-              id: 'fullname',
-              placeholder: 'Ej: Carlos Sánchez',
-              // value:name,
-              // onChange: (e) => handleName(e.target.value),
+              id: "fullname",
+              placeholder: "Ej: Carlos Sánchez",
               required: true,
-              value: nominated.name,
+              value: nominatedName,
               onChange: (e) => {
-                setNominated({ ...nominated, name: e.target.value });
+                setNominatedName(e.target.value);
               },
             }}
             labelProps={{
-              htmlFor: 'fullname',
+              htmlFor: "fullname",
             }}
           />
           <p className="text-sm text-primary">
@@ -84,14 +82,11 @@ const CreateNominatedForm = ({
           select
           label="Categoría"
           selectProps={{
-            id: 'category',
-            // value:name,
-            // onChange: (e) => handleName(e.target.value),
+            id: "category",
             required: true,
-            value: nominated.category,
-            defaultValue: '',
+            value: nominatedCategory,
             onChange: (e) => {
-              setNominated({ ...nominated, category: e.target.value });
+              setNominatedCategory(e.target.value);
             },
             children: (
               <>
@@ -107,7 +102,7 @@ const CreateNominatedForm = ({
             ),
           }}
           labelProps={{
-            htmlFor: 'category',
+            htmlFor: "category",
           }}
         />
 
@@ -120,10 +115,10 @@ const CreateNominatedForm = ({
               height={500}
               key={item}
               className={twMerge(
-                'w-full h-60 object-cover object-center',
-                item === nominated.image ? 'opacity-100' : 'opacity-25'
+                "w-full h-60 object-cover object-center",
+                item === nominatedImage ? "opacity-100" : "opacity-25"
               )}
-              onClick={() => setNominated({ ...nominated, image: item })}
+              onClick={() => setNominatedImage(item)}
             />
           ))}
         </div>
@@ -137,4 +132,3 @@ const CreateNominatedForm = ({
 };
 
 export default CreateNominatedForm;
-

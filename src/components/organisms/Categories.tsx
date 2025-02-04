@@ -1,9 +1,7 @@
 "use client";
-import Image from "next/image";
 import { useAppSelector } from "@/lib/hooks";
 import { getCategoryByNameId, getIconByCategory } from "@/utils/category";
 import Label from "../atoms/Label";
-import { ReactNode } from "react";
 
 const Categories = () => {
   const categories = useAppSelector((state) => state.nominateds.categories);

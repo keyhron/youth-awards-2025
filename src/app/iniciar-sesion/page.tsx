@@ -1,9 +1,9 @@
-'use client';
-import { useEffect } from 'react';
-import Navbar from '@/components/molecules/Navbar';
-import LoginForm from '@/components/organisms/LoginForm';
-import { useAppSelector } from '@/lib/hooks';
-import { useRouter } from 'next/navigation';
+"use client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Navbar from "@/components/molecules/Navbar";
+import LoginForm from "@/components/organisms/LoginForm";
+import { useAppSelector } from "@/lib/hooks";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -12,9 +12,9 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (isAuthenticated && isReady) {
-      router.push('/');
+      router.push("/");
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, isReady]);
 
   return (
     <main>
@@ -23,4 +23,3 @@ export default function LoginPage() {
     </main>
   );
 }
-

@@ -65,7 +65,7 @@ export const getCategories = async (): Promise<TCategories> => {
   }
 };
 
-export const getInitialData = async (): Promise<TInitialData> => {
+export const getInitialData = async (): Promise<TInitialData | null> => {
   try {
     const categories = await getCategories();
 
@@ -74,6 +74,7 @@ export const getInitialData = async (): Promise<TInitialData> => {
     };
   } catch (error) {
     console.error("Error getting data:", error);
+    return null;
   }
 };
 

@@ -4,7 +4,6 @@ import { twMerge } from "tailwind-merge";
 
 const NominatedItem = ({
   nominated,
-  showVotes,
   showCategory,
   isVoting,
   isSelected,
@@ -47,7 +46,6 @@ const NominatedItem = ({
           {nominated.name}
         </p>
 
-        {/* {showVotes && <p>Con {nominated.votes} votos</p>} */}
         <p>Con {nominated.votes} votos</p>
       </div>
     </div>
