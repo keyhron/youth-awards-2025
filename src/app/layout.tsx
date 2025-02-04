@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { fontAudiowide, fontOrbitron } from "@/fonts";
 import { getInitialData } from "@/services/firebaseService";
 import { pageName, year } from "@/data";
@@ -24,6 +25,7 @@ export default async function RootLayout({
       >
         <StoreProvider initialState={initialData}>{children}</StoreProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
