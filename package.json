@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
+    "@vercel/analytics": "^1.4.1",
     "dayjs": "^1.11.13",
     "firebase": "^11.2.0",
     "next": "15.1.6",

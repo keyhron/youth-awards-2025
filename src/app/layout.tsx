@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { fontAudiowide, fontOrbitron } from "@/fonts";
 import { getInitialData } from "@/services/firebaseService";
 import { pageName, year } from "@/data";
@@ -22,6 +23,7 @@ export default async function RootLayout({
         className={`${fontAudiowide.variable} ${fontOrbitron.variable} font-audiowide bg-black text-white`}
       >
         <StoreProvider initialState={initialData}>{children}</StoreProvider>
+        <Analytics />
       </body>
     </html>
   );
