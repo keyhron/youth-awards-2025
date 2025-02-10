@@ -10,7 +10,7 @@ import { GiFaceToFace } from "react-icons/gi";
 import { TbMoodHappy } from "react-icons/tb";
 import { RiShirtLine } from "react-icons/ri";
 import { IoPerson } from "react-icons/io5";
-import { MdAdminPanelSettings } from "react-icons/md";
+import { MdAdminPanelSettings, MdFamilyRestroom } from "react-icons/md";
 
 export const navbarOptions = [
   {
@@ -55,5 +55,6 @@ export const CATEGORY_ICONS = {
   "most-style": RiShirtLine,
   "most-responsible": MdAdminPanelSettings,
   "most-assist": FaPersonWalking,
+  "parents-young": MdFamilyRestroom,
   "": IoPerson,
 };

@@ -8,7 +8,7 @@ import { useAppSelector } from "@/lib/hooks";
 export default function LoginPage() {
   const router = useRouter();
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
-  const isReady = useAppSelector((state) => state.auth.isReady);
+  const isReady = useAppSelector((state) => state.auth.uid !== null);
 
   useEffect(() => {
     if (isAuthenticated && isReady) {

@@ -54,6 +54,10 @@ export const getNominateds = async (): Promise<TNominateds> => {
 export const getCategories = async (): Promise<TCategories> => {
   try {
     const querySnapshot = await getDocs(collection(database, "categories"));
+    // Filter by active true
+    // const querySnapshot = await getDocs(
+    //   query(collection(database, "categories"), where("active", "==", true))
+    // );
 
     return querySnapshot.docs.map((item) => ({
       id: item.id,

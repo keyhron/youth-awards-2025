@@ -8,13 +8,13 @@ const winners2024: INominated[] = [
     category: "most-style",
     votes: 11,
     image:
-      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/new-nominateds%2FWhatsApp%20Image%202024-02-08%20at%201.35.22%20AM%20(1).jpeg?alt=media&token=7055c876-c4d5-4c5d-a58a-1943cb5d03a5",
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-03%20at%201.35.55%20PM%20(5).jpeg?alt=media&token=722975ea-d9b2-449f-909a-9810cacd482e",
     winner: true,
   },
   {
     id: "BUdm55oOUdo8FwwudzPc",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/new-nominateds%2FWhatsApp%20Image%202024-02-08%20at%201.35.25%20AM.jpeg?alt=media&token=3b1b12f9-7ccf-46b0-8c16-2e448ca5f9ee",
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-03%20at%201.35.56%20PM.jpeg?alt=media&token=62d5794a-661e-4708-bcb1-0288b06a468d",
     votes: 15,
     category: "most-happy",
     name: "Luis Miguel",
@@ -25,8 +25,7 @@ const winners2024: INominated[] = [
     id: "NKnyoYfTyWXzAUzkL3vq",
     votes: 16,
     category: "most-serious",
-    image:
-      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/new-nominateds%2FtRfArWxfT3EihRaBWAUZEw%20(1).jpeg?alt=media&token=fc66b344-7577-43ac-b83a-d1d65e32950c",
+    image: "/images/nominateds/2023/carlosb.jpeg",
     created: 1707698909765,
     winner: true,
     name: "Carlos Barrios",
@@ -35,8 +34,7 @@ const winners2024: INominated[] = [
     id: "PbBwbAZZto6o7cnQeTrs",
     created: 1707698042455,
     category: "most-punctual",
-    image:
-      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/new-nominateds%2FWhatsApp%20Image%202024-02-07%20at%2011.54.22%20PM.jpeg?alt=media&token=451fc684-bccc-44d1-b1a0-58d9c002f06b",
+    image: "/images/nominateds/2023/dionelvy.jpeg",
     winner: true,
     votes: 15,
     name: "Dionelvy Aguilera",
@@ -46,7 +44,7 @@ const winners2024: INominated[] = [
     created: 1707659000416,
     name: "Yoelin Lozada",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/new-nominateds%2FWhatsApp%20Image%202024-02-08%20at%201.35.26%20AM.jpeg?alt=media&token=287916dc-a39e-4593-8cd1-7554ab40e00d",
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-05%20at%201.45.34%20PM%20(2).jpeg?alt=media&token=2ebc2c98-2dc5-485c-b654-bb43e0ebf6e0",
     winner: true,
     category: "most-responsible",
     votes: 14,
@@ -57,8 +55,7 @@ const winners2024: INominated[] = [
     created: 1707698097104,
     votes: 13,
     winner: true,
-    image:
-      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/new-nominateds%2FWhatsApp%20Image%202024-02-07%20at%2011.54.22%20PM.jpeg?alt=media&token=451fc684-bccc-44d1-b1a0-58d9c002f06b",
+    image: "/images/nominateds/2023/dionelvy.jpeg",
     category: "most-outstading",
   },
   {
@@ -69,7 +66,7 @@ const winners2024: INominated[] = [
     category: "most-photogenic",
     name: "Lismar Medina",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/new-nominateds%2F1707696501899.webp?alt=media&token=593d6131-39e0-4922-a5ac-1bb7b59512ea",
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-03%20at%201.35.52%20PM%20(1).jpeg?alt=media&token=2b11ae89-4f3c-4ce3-b90f-04f8e5e50b28",
   },
   {
     id: "tUJbj2rbAZhiZaVHoNKH",
@@ -78,7 +75,7 @@ const winners2024: INominated[] = [
     category: "most-collaborator",
     name: "Daile Valera",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/new-nominateds%2FWhatsApp%20Image%202024-02-08%20at%201.35.24%20AM%20(1).jpeg?alt=media&token=589a5957-665f-496f-88c2-ce33fb6b71e4",
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds%2FfUUJooT9YMvbXS1t4rhioS.jpeg?alt=media&token=29762be7-9033-402d-93c8-701d16bcf31f",
     votes: 9,
   },
 ];

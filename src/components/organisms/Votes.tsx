@@ -17,15 +17,13 @@ import { enabledNewVote } from "@/data";
 const Votes = () => {
   const dispatch = useAppDispatch();
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
-  const isReady = useAppSelector((state) => state.auth.isReady);
+  const isReady = useAppSelector((state) => state.auth.uid !== null);
 
   const nominateds = useAppSelector((state) => state.nominateds.nominateds);
   const categories = useAppSelector((state) =>
     state.nominateds.categories.filter((item) => item.active)
   );
   const votes = useAppSelector((state) => state.nominateds.votes);
-
-  const isAuth = isAuthenticated && isReady;
 
   useEffect(() => {
     const unsubscribe = getVotes((snapshot) => {
@@ -195,7 +193,7 @@ const Votes = () => {
             <Button label="Nuevo voto" variant="white" />
           </Link>
         )}
-        {isAuth && (
+        {isAuthenticated && isReady && (
           <>
             <Button label="Generar resultado" onClick={handleWinners} />
             <Button label="Reiniciar votos" onClick={handleReset} />
