@@ -20,7 +20,7 @@ interface NominatedByCategory {
   nominateds: Nominated[];
 }
 
-interface TInitialData {
+interface InitialData {
   categories: Category[];
   // nominateds: Nominateds;
   // oldWinners: Nominateds;

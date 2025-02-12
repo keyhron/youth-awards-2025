@@ -61,7 +61,7 @@ export const getCategories = async (): Promise<Category[]> => {
   }
 };
 
-export const getInitialData = async (): Promise<TInitialData | null> => {
+export const getInitialData = async (): Promise<InitialData | null> => {
   try {
     const categories = await getCategories();
 

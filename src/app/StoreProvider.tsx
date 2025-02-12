@@ -7,7 +7,6 @@ import {
   initializeStore,
   setNominateds,
 } from "@/lib/reducers/nominatedsReducer";
-import { TInitialData } from "@/interfaces";
 import { authService } from "@/firebase/firebase";
 import { signIn, signOut } from "@/lib/reducers/authReducer";
 import { getNominateds } from "@/services/firebaseService";
@@ -17,7 +16,7 @@ export default function StoreProvider({
   initialState,
 }: {
   children: ReactNode;
-  initialState: TInitialData | null;
+  initialState: InitialData | null;
 }) {
   const storeRef = useRef<AppStore | null>(null);
   if (!storeRef.current) {
