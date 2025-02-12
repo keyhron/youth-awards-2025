@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
 const BUTTON_VARIANTS = {
@@ -15,8 +16,8 @@ const BUTTON_VARIANTS = {
 };
 
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: string;
-  label: string;
+  variant?: keyof typeof BUTTON_VARIANTS;
+  label: ReactNode;
 }
 
 const Button = ({

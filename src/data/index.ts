@@ -30,7 +30,9 @@ export const navbarOptions = [
 export const pageName = "Premios Juventud";
 export const year = "2025";
 export const email = "juanbarrios045@gmail.com";
-export const enabledNewVote = process.env.NEXT_PUBLIC_ENABLED_VOTES;
+export const enabledNewVote = Boolean(
+  process.env.NEXT_PUBLIC_ENABLED_VOTES ?? false
+);
 
 export const footerOptions = [
   {

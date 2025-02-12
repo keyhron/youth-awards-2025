@@ -6,7 +6,6 @@ import Label from "../atoms/Label";
 import FormControl from "../molecules/FormControl";
 import { useEffect, useState } from "react";
 import NominatedItem from "../molecules/NominatedItem";
-import { INominated, IVote } from "@/interfaces";
 import { createVote } from "@/services/firebaseService";
 import { enabledNewVote, year } from "@/data";
 
@@ -21,7 +20,7 @@ const NewVoteForm = () => {
   const [forThisYear, setForThisYear] = useState("");
 
   const [indexCategory, setIndexCategory] = useState(0);
-  const [votes, setVotes] = useState<Record<string, INominated>>({});
+  const [votes, setVotes] = useState<Record<string, Nominated>>({});
   const [disabled, setDisabled] = useState(false);
 
   const categories = useAppSelector(
@@ -69,7 +68,7 @@ const NewVoteForm = () => {
   const handleSubmit = async () => {
     try {
       setDisabled(true);
-      const data: IVote = {
+      const data: Vote = {
         fullname,
         questions: {
           forMeIs,

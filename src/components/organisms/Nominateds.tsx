@@ -3,7 +3,6 @@ import { useMemo } from "react";
 import { useAppSelector } from "@/lib/hooks";
 import { getNominatedsByCategory } from "@/utils/category";
 import Label from "../atoms/Label";
-import { TNominatedsByCategory } from "@/interfaces";
 import NominatedItem from "../molecules/NominatedItem";
 
 const Nominateds = () => {
@@ -11,7 +10,7 @@ const Nominateds = () => {
   const categories = useAppSelector((state) => state.nominateds.categories);
   const isReady = useAppSelector((state) => state.auth.uid !== null);
 
-  const nominatedsByCategory = useMemo<TNominatedsByCategory>(() => {
+  const nominatedsByCategory: NominatedByCategory[] = useMemo(() => {
     return getNominatedsByCategory(nominateds, categories);
   }, [nominateds]);
 

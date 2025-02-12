@@ -1,6 +1,4 @@
-import { INominated } from "@/interfaces";
-
-const winners2024: INominated[] = [
+const winners2024: Nominated[] = [
   {
     id: "4z0d6Tdgj0zAaLTz31kI",
     created: 1707709095551,
@@ -80,7 +78,7 @@ const winners2024: INominated[] = [
   },
 ];
 
-const winners2023: INominated[] = [
+const winners2023: Nominated[] = [
   {
     id: "13",
     created: "2023-01-26 02:21:27+00",
@@ -164,7 +162,7 @@ const winners2023: INominated[] = [
   },
 ];
 
-const winners2022: INominated[] = [
+const winners2022: Nominated[] = [
   {
     id: "8C5RwZ4t8SL7YnJtuRry",
     votes: 21,

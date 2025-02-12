@@ -1,6 +1,5 @@
 import { year } from "@/data";
 import Navbar from "../molecules/Navbar";
-// import { pageName } from "@/data";
 
 const Hero = () => {
   return (
@@ -14,7 +13,7 @@ const Hero = () => {
         <div className="container px-4 mx-auto flex flex-col items-center justify-center gap-20 flex-1 h-full">
           <div className="font-bold font-orbitron">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl">Premios</h2>
-            <h1 className="text-7xl sm:text-8xl lg:text-9xl leading-none">
+            <h1 className="text-5xl xs:text-6xl sm:text-8xl lg:text-9xl leading-none">
               Juventud
             </h1>
           </div>

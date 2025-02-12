@@ -2,13 +2,12 @@
 import { useAppSelector } from "@/lib/hooks";
 import { getCategoryByNameId } from "@/utils/category";
 import Label from "../atoms/Label";
-import { INominated } from "@/interfaces";
 import NominatedItem from "../molecules/NominatedItem";
 import { Fragment } from "react";
 
 interface IOldWinner {
   year: string;
-  winners: INominated[];
+  winners: Nominated[];
 }
 
 const OldWinners = ({ data }: { data: IOldWinner[] }) => {

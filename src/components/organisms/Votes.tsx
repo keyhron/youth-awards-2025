@@ -5,7 +5,6 @@ import Button from "../atoms/Button";
 import Label from "../atoms/Label";
 import { useEffect } from "react";
 import { getVotes, updateNominateds } from "@/services/firebaseService";
-import { INominated, IVote } from "@/interfaces";
 import dayjs from "dayjs";
 import {
   resetWinners,
@@ -31,7 +30,7 @@ const Votes = () => {
         id: doc.id,
         ...doc.data(),
       }));
-      dispatch(setVotes(newVotes as IVote[]));
+      dispatch(setVotes(newVotes as Vote[]));
     });
 
     // Clean listener
@@ -42,8 +41,8 @@ const Votes = () => {
 
   const handleWinners = async () => {
     //  Order all votes
-    const allVotes: INominated[] = votes.reduce(function (
-      acc: INominated[],
+    const allVotes: Nominated[] = votes.reduce(function (
+      acc: Nominated[],
       vote
     ) {
       acc.push(...Object.values(vote.votes));
@@ -53,7 +52,7 @@ const Votes = () => {
 
     //  Order all nominateds to update
     const nominatedsToUpdate = nominateds.reduce(function (
-      acc: INominated[],
+      acc: Nominated[],
       nominated
     ) {
       const countVotes = allVotes.filter((v) => v.id === nominated.id).length;
@@ -67,7 +66,7 @@ const Votes = () => {
 
     // Order nominateds to update by category
     const nominatedsByCategory = categories.reduce(function (
-      acc: INominated[][],
+      acc: Nominated[][],
       category
     ) {
       const nominatedsbyCat = nominatedsToUpdate.filter(
@@ -81,7 +80,7 @@ const Votes = () => {
 
     // Choose winners
     const winners = nominatedsByCategory.reduce(function (
-      acc: INominated[],
+      acc: Nominated[],
       nominateds
     ) {
       const winner = nominateds.reduce(function (first, second) {
@@ -96,7 +95,7 @@ const Votes = () => {
 
     // Set winner to nominates to update
     const finalNominateds = nominatedsToUpdate.reduce(function (
-      acc: INominated[],
+      acc: Nominated[],
       nominated
     ) {
       const winnerExist = winners.filter((w) => w.id === nominated.id);
@@ -117,7 +116,7 @@ const Votes = () => {
   const handleReset = async () => {
     //  Get all nominateds to delete
     const nominatedsToUpdate = nominateds.reduce(function (
-      acc: INominated[],
+      acc: Nominated[],
       nominated
     ) {
       if (nominated.votes > 0) {

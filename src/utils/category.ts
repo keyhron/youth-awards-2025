@@ -1,17 +1,16 @@
-import { CATEGORY_ICONS } from '@/data';
-import { ICategory, TCategories, TNominateds } from '@/interfaces';
-import { IconType } from 'react-icons';
+import { CATEGORY_ICONS } from "@/data";
+import { IconType } from "react-icons";
 
 export const getCategoryByNameId = (
   categoryId: string,
-  categories: TCategories
-): ICategory | undefined => {
+  categories: Category[]
+): Category | undefined => {
   return categories.find((item) => item.nameId === categoryId);
 };
 
 export const getNominatedsByCategory = (
-  nominateds: TNominateds,
-  categories: TCategories
+  nominateds: Nominated[],
+  categories: Category[]
 ) => {
   return categories
     .filter((item) => item.active)
@@ -25,7 +24,6 @@ export const getNominatedsByCategory = (
     });
 };
 
-export const getIconByCategory = (categoryNameId: string = ''): IconType => {
-  return CATEGORY_ICONS[categoryNameId as ''] || CATEGORY_ICONS[''];
+export const getIconByCategory = (categoryNameId: string = ""): IconType => {
+  return CATEGORY_ICONS[categoryNameId as ""] || CATEGORY_ICONS[""];
 };
-

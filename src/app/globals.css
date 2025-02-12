@@ -6,4 +6,18 @@
 
   --font-audiowide: var(--font-audiowide);
   --font-orbitron: var(--font-orbitron);
+
+  --breakpoint-xs: 25rem;
+}
+
+.custom-range {
+  @apply w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer;
+}
+
+.custom-range::-webkit-slider-thumb {
+  @apply w-4 h-4 bg-secondary rounded-full appearance-none cursor-pointer;
+}
+
+.custom-range::-moz-range-thumb {
+  @apply w-4 h-4 bg-white rounded-full cursor-pointer;
 }

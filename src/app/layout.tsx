@@ -6,6 +6,7 @@ import { getInitialData } from "@/services/firebaseService";
 import { pageName, year } from "@/data";
 import StoreProvider from "./StoreProvider";
 import "./globals.css";
+import RadioPlayer from "@/components/molecules/RadioPlayer";
 
 export const metadata = {
   title: pageName,
@@ -23,7 +24,11 @@ export default async function RootLayout({
       <body
         className={`${fontAudiowide.variable} ${fontOrbitron.variable} font-audiowide bg-black text-white`}
       >
-        <StoreProvider initialState={initialData}>{children}</StoreProvider>
+        <StoreProvider initialState={initialData}>
+          <RadioPlayer />
+
+          {children}
+        </StoreProvider>
         <Analytics />
         <SpeedInsights />
       </body>

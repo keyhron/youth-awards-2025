@@ -1,4 +1,3 @@
-import { INominated } from "@/interfaces";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 
@@ -9,12 +8,12 @@ const NominatedItem = ({
   isSelected,
   onSelect,
 }: {
-  nominated: INominated;
+  nominated: Nominated;
   showVotes?: boolean;
   showCategory?: string;
   isVoting?: boolean;
   isSelected?: boolean;
-  onSelect?: (item: INominated) => void;
+  onSelect?: (item: Nominated) => void;
 }) => {
   const validateClassname = () => {
     if (isVoting) {

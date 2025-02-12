@@ -1,13 +1,5 @@
 import { INewNominated } from "@/components/organisms/CreateNominatedForm";
 import { authService, database } from "@/firebase/firebase";
-import {
-  INominated,
-  IVote,
-  TCategories,
-  TInitialData,
-  TNominateds,
-  // TOldWinners,
-} from "@/interfaces";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import {
   collection,
@@ -37,21 +29,21 @@ export const getVotes = (callback: (item: QuerySnapshot) => void) => {
   }
 };
 
-export const getNominateds = async (): Promise<TNominateds> => {
+export const getNominateds = async (): Promise<Nominated[]> => {
   try {
     const querySnapshot = await getDocs(collection(database, "nominateds"));
 
     return querySnapshot.docs.map((item) => ({
       id: item.id,
       ...item.data(),
-    })) as TNominateds;
+    })) as Nominated[];
   } catch (error) {
     console.error("Error getting data:", error);
     throw error;
   }
 };
 
-export const getCategories = async (): Promise<TCategories> => {
+export const getCategories = async (): Promise<Category[]> => {
   try {
     const querySnapshot = await getDocs(collection(database, "categories"));
     // Filter by active true
@@ -62,7 +54,7 @@ export const getCategories = async (): Promise<TCategories> => {
     return querySnapshot.docs.map((item) => ({
       id: item.id,
       ...item.data(),
-    })) as TCategories;
+    })) as Category[];
   } catch (error) {
     console.error("Error getting data:", error);
     throw error;
@@ -101,7 +93,7 @@ export const getImagesNominateds = async (): Promise<string[]> => {
   }
 };
 
-export const createVote = async (vote: IVote) => {
+export const createVote = async (vote: Vote) => {
   try {
     const docRef = await addDoc(collection(database, "votes"), vote);
     console.log("Document written with ID: ", docRef.id);
@@ -111,8 +103,8 @@ export const createVote = async (vote: IVote) => {
 };
 
 export const updateNominateds = async (
-  nominateds: INominated[],
-  votesForDelete?: IVote[]
+  nominateds: Nominated[],
+  votesForDelete?: Vote[]
 ) => {
   try {
     const batch = writeBatch(database);

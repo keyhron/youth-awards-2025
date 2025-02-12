@@ -1,16 +1,10 @@
-import {
-  IVote,
-  TCategories,
-  TNominateds /* TOldWinners */,
-} from "@/interfaces";
 import { createSlice } from "@reduxjs/toolkit";
-import { INominated } from "../../interfaces/index";
 
-interface INominatedState {
-  categories: TCategories;
-  nominateds: TNominateds;
-  winners: TNominateds;
-  votes: IVote[];
+interface NominatedState {
+  categories: Category[];
+  nominateds: Nominated[];
+  winners: Nominated[];
+  votes: Vote[];
 }
 
 const nominatedsSlice = createSlice({
@@ -21,7 +15,7 @@ const nominatedsSlice = createSlice({
     winners: [],
     oldWinners: [],
     votes: [],
-  } as INominatedState,
+  } as NominatedState,
   reducers: {
     initializeStore(state, action) {
       state.categories = action.payload.categories || [];
@@ -29,7 +23,7 @@ const nominatedsSlice = createSlice({
     setNominateds(state, action) {
       state.nominateds = action.payload;
       state.winners =
-        action.payload?.filter((nominated: INominated) => nominated.winner) ||
+        action.payload?.filter((nominated: Nominated) => nominated.winner) ||
         [];
     },
     setVotes(state, action) {
@@ -39,7 +33,7 @@ const nominatedsSlice = createSlice({
       // Update nominateds with votes
       state.nominateds = state.nominateds.map((item) => {
         const updateNominated = action.payload.find(
-          (nm: INominated) => nm.id === item.id
+          (nm: Nominated) => nm.id === item.id
         );
 
         if (updateNominated) {
@@ -51,14 +45,14 @@ const nominatedsSlice = createSlice({
 
       // Update winners
       state.winners =
-        action.payload?.filter((nominated: INominated) => nominated.winner) ||
+        action.payload?.filter((nominated: Nominated) => nominated.winner) ||
         [];
     },
     resetWinners(state, action) {
       // Update nominateds with votes
       state.nominateds = state.nominateds.map((item) => {
         const updateNominated = action.payload.find(
-          (nm: INominated) => nm.id === item.id
+          (nm: Nominated) => nm.id === item.id
         );
 
         if (updateNominated) {
