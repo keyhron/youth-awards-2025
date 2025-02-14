@@ -76,7 +76,7 @@ export const getInitialData = async (): Promise<InitialData | null> => {
 
 export const getImagesNominateds = async (): Promise<string[]> => {
   try {
-    const imagesRef = ref(getStorage(), "new-nominateds");
+    const imagesRef = ref(getStorage(), "nominateds-2025");
 
     const { items } = await listAll(imagesRef);
 
