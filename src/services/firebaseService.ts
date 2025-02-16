@@ -33,12 +33,13 @@ export const getNominateds = async (): Promise<Nominated[]> => {
   try {
     const querySnapshot = await getDocs(collection(database, "nominateds"));
 
-    return querySnapshot.docs.map((item) => ({
+    const nominateds = querySnapshot.docs.map((item) => ({
       id: item.id,
       ...item.data(),
     })) as Nominated[];
+
+    return nominateds;
   } catch (error) {
-    console.error("Error getting data:", error);
     throw error;
   }
 };

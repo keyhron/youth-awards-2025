@@ -1,3 +1,4 @@
+import { useAppSelector } from "@/lib/hooks";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 
@@ -15,6 +16,8 @@ const NominatedItem = ({
   isSelected?: boolean;
   onSelect?: (item: Nominated) => void;
 }) => {
+  const showVotes = useAppSelector((item) => item.nominateds.showVotes);
+
   const validateClassname = () => {
     if (isVoting) {
       return isSelected ? "opacity-100" : "opacity-50 grayscale";
@@ -36,7 +39,7 @@ const NominatedItem = ({
         alt="Nominated image"
         width={400}
         height={600}
-        className="h-80 w-full object-center object-cover"
+        className="h-[25rem] w-full object-center object-cover"
       />
 
       <div className="p-5 flex flex-col items-center justify-center gap-2 text-sm capitalize font-light">
@@ -45,7 +48,7 @@ const NominatedItem = ({
           {nominated.name}
         </p>
 
-        <p>Con {nominated.votes} votos</p>
+        {showVotes && <p>Con {nominated.votes} votos</p>}
       </div>
     </div>
   );

@@ -45,11 +45,15 @@ const Navbar = () => {
                 <Button label="Votar" variant="white" className="uppercase" />
               </Link>
             ) : (
-              <Button
-                label="Radio"
-                variant="white"
-                className="uppercase hidden md:flex"
-              />
+              <>
+                {/* 
+                <Button
+                  label="Radio"
+                  variant="white"
+                  className="uppercase hidden md:flex"
+                />
+                */}
+              </>
             )}
 
             <IconButton
@@ -78,7 +82,7 @@ const Navbar = () => {
                 </Link>
               )}
 
-              <Link
+              {/* <Link
                 href="/"
                 className="px-4 py-3"
                 onClick={() => {
@@ -86,7 +90,7 @@ const Navbar = () => {
                 }}
               >
                 Radio
-              </Link>
+              </Link> */}
             </nav>
           )}
         </div>

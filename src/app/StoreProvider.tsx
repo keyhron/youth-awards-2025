@@ -8,7 +8,7 @@ import {
   setNominateds,
 } from "@/lib/reducers/nominatedsReducer";
 import { authService } from "@/firebase/firebase";
-import { signIn, signOut } from "@/lib/reducers/authReducer";
+import { signIn } from "@/lib/reducers/authReducer";
 import { getNominateds } from "@/services/firebaseService";
 
 export default function StoreProvider({
@@ -30,7 +30,6 @@ export default function StoreProvider({
   const handleGetNominateds = async () => {
     try {
       const nominateds = await getNominateds();
-      console.log(nominateds.filter((item) => item.winner));
       storeRef.current?.dispatch(setNominateds(nominateds));
     } catch (error) {
       console.log(error);
@@ -51,9 +50,10 @@ export default function StoreProvider({
             name: user.displayName,
           })
         );
-      } else {
-        storeRef.current?.dispatch(signOut());
       }
+      // else {
+      // storeRef.current?.dispatch(signOut());
+      // }
     });
 
     return () => unsubscribe();

@@ -1,31 +1,31 @@
 "use client";
 import ConfettiComponent from "react-confetti";
 import useWindowSize from "@/hooks/useWindowSize";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 const Confetti = () => {
   const { width, height } = useWindowSize();
-  const [showConfetti, setShowConfetti] = useState(true);
+  // const [showConfetti, setShowConfetti] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowConfetti(false);
-    }, 5000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowConfetti(false);
+  //   }, 10000);
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  if (showConfetti) {
-    return null;
-  }
+  // if (showConfetti) {
+  //   return null;
+  // }
 
   return (
     <ConfettiComponent
       className="max-w-full"
       width={width}
       height={height}
-      recycle={showConfetti}
-      numberOfPieces={150}
+      initialVelocityY={50}
+      numberOfPieces={300}
     />
   );
 };

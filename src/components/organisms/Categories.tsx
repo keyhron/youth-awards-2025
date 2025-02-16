@@ -2,9 +2,12 @@
 import { useAppSelector } from "@/lib/hooks";
 import { getCategoryByNameId, getIconByCategory } from "@/utils/category";
 import Label from "../atoms/Label";
+import { useRouter } from "next/navigation";
+import clsx from "clsx";
 
 const Categories = () => {
   const categories = useAppSelector((state) => state.nominateds.categories);
+  const router = useRouter();
 
   return (
     <section className="pt-20 flex flex-col container mx-auto px-4">
@@ -18,20 +21,24 @@ const Categories = () => {
         {categories.map((item, i) => {
           const Icon = getIconByCategory(item.nameId);
           return (
-            <div
-              className="border border-primary flex flex-col hover:shadow-md"
+            <button
+              className={clsx(
+                "border border-primary flex flex-col hover:shadow-md p-5 items-center justify-center text-sm capitalize font-light gap-2 bg-black",
+                item.active ? "cursor-pointer" : "cursor-default"
+              )}
               key={i}
+              onClick={() => {
+                if (item.active) {
+                  router.push(`/nominados#${item.name}`);
+                }
+              }}
             >
-              <div className="p-5 flex flex-col h-full w-full items-center justify-center text-sm capitalize font-light gap-2">
-                <div className="flex w-full justify-center">
-                  <Icon size={30} />
-                </div>
+              <Icon size={30} />
 
-                <p className="font-bold text-white sm:text-xl font-orbitron">
-                  {getCategoryByNameId(item.nameId, categories)?.name}
-                </p>
-              </div>
-            </div>
+              <p className="font-bold text-white sm:text-xl font-orbitron">
+                {getCategoryByNameId(item.nameId, categories)?.name}
+              </p>
+            </button>
           );
         })}
       </div>

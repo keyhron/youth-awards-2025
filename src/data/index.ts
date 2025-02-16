@@ -1,4 +1,4 @@
-import { FaUserClock, FaPeopleCarry } from "react-icons/fa";
+import { FaUserClock, FaPeopleCarry, FaInstagram } from "react-icons/fa";
 import { FiCamera } from "react-icons/fi";
 import {
   FaPeopleGroup,
@@ -58,5 +58,6 @@ export const CATEGORY_ICONS = {
   "most-responsible": MdAdminPanelSettings,
   "most-assist": FaPersonWalking,
   "parents-young": MdFamilyRestroom,
+  "most-influencer": FaInstagram,
   "": IoPerson,
 };
