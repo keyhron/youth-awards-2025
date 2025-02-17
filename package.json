@@ -12,15 +12,16 @@
     "@reduxjs/toolkit": "^2.5.1",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
-    "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "firebase": "^11.2.0",
+    "motion": "^12.4.3",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-confetti": "^6.2.2",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
     "react-redux": "^9.2.0",
+    "react-rewards": "^2.1.0",
     "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {

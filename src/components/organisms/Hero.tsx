@@ -7,7 +7,7 @@ const Hero = () => {
       id="hero"
       className="relative w-full flex justify-center flex-col bg-[url(/images/hero-5.jpg)] bg-cover bg-center"
     >
-      <div className="w-full h-full bg-black/40 text-white min-h-screen flex flex-col">
+      <div className="w-full h-full bg-black/40 text-white min-h-[100dvh] flex flex-col">
         <Navbar />
 
         <div className="container px-4 mx-auto flex flex-col items-center justify-center gap-20 flex-1 h-full">
@@ -24,9 +24,7 @@ const Hero = () => {
               gran evento.
             </p>
 
-            <p className="sm:text-lg font-bold mt-5">
-              ??? de febrero de {year}
-            </p>
+            <p className="sm:text-lg font-bold mt-5">23 de febrero de {year}</p>
             <p className="sm:text-lg font-bold">
               En La Iglesia Luz Del Mundo Misión Guanare 63
             </p>

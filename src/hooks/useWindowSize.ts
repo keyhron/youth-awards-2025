@@ -10,8 +10,8 @@ function getCurrentWidthAndHeight() {
   }
 
   return {
-    width: window?.innerWidth,
-    height: window?.innerHeight,
+    width: window.innerWidth,
+    height: window.innerHeight,
   };
 }
 
@@ -25,9 +25,11 @@ export default function useWindowResize() {
   }
 
   useEffect(() => {
-    window?.addEventListener("resize", handler);
-    return () => window?.removeEventListener("resize", handler);
-  });
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handler);
+      return () => window.removeEventListener("resize", handler);
+    }
+  }, []);
 
   return widthAndHeight;
 }

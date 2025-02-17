@@ -111,6 +111,11 @@ const NewVoteForm = () => {
       {step === 0 && (
         <div className="flex flex-col gap-6 mt-10">
           <div className="flex flex-col gap-2">
+            <p className="text-sm text-red-400">
+              Pedimos tu nombre para saber si ya votaste no repetir. Si no eres
+              de la misión 63 no puedes participar.
+            </p>
+
             <FormControl
               label="Escribe tus nombres y apellidos:"
               inputProps={{
@@ -124,10 +129,12 @@ const NewVoteForm = () => {
                 htmlFor: "fullname",
               }}
             />
-            <p className="text-sm text-primary">
-              Pedimos tu nombre para saber que si ya votaste no repetir. Si no
-              eres de la misión 63 no puedes participar.
-            </p>
+
+            {fullname.length < 12 && (
+              <p className="text-sm text-primary">
+                Debes escribir mínimo 12 cáracteres
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col gap-2">
@@ -145,9 +152,12 @@ const NewVoteForm = () => {
                 htmlFor: "question1",
               }}
             />
-            <p className="text-sm text-primary">
-              Debes escribir mínimo 12 cáracteres
-            </p>
+
+            {howDefine.length < 12 && (
+              <p className="text-sm text-primary">
+                Debes escribir mínimo 12 cáracteres
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col gap-2">
@@ -165,9 +175,11 @@ const NewVoteForm = () => {
                 htmlFor: "question2",
               }}
             />
-            <p className="text-sm text-primary">
-              Debes escribir mínimo 12 cáracteres
-            </p>
+            {forMeIs.length < 12 && (
+              <p className="text-sm text-primary">
+                Debes escribir mínimo 12 cáracteres
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col gap-2">
@@ -185,9 +197,11 @@ const NewVoteForm = () => {
                 htmlFor: "question3",
               }}
             />
-            <p className="text-sm text-primary">
-              Debes escribir mínimo 12 cáracteres
-            </p>
+            {forThisYear.length < 12 && (
+              <p className="text-sm text-primary">
+                Debes escribir mínimo 12 cáracteres
+              </p>
+            )}
           </div>
         </div>
       )}

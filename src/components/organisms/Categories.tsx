@@ -1,9 +1,9 @@
 "use client";
+import { twJoin } from "tailwind-merge";
 import { useAppSelector } from "@/lib/hooks";
 import { getCategoryByNameId, getIconByCategory } from "@/utils/category";
 import Label from "../atoms/Label";
 import { useRouter } from "next/navigation";
-import clsx from "clsx";
 
 const Categories = () => {
   const categories = useAppSelector((state) => state.nominateds.categories);
@@ -22,9 +22,10 @@ const Categories = () => {
           const Icon = getIconByCategory(item.nameId);
           return (
             <button
-              className={clsx(
-                "border border-primary flex flex-col hover:shadow-md p-5 items-center justify-center text-sm capitalize font-light gap-2 bg-black",
-                item.active ? "cursor-pointer" : "cursor-default"
+              className={twJoin(
+                "border flex flex-col hover:shadow-md px-6 py-10 items-center justify-center text-sm font-light gap-5 bg-neutral-950",
+                item.active ? "cursor-pointer" : "cursor-default",
+                item.active ? "border-green-400" : "border-red-400"
               )}
               key={i}
               onClick={() => {
@@ -33,11 +34,24 @@ const Categories = () => {
                 }
               }}
             >
-              <Icon size={30} />
+              <Icon size={45} color="var(--color-primary)" />
 
-              <p className="font-bold text-white sm:text-xl font-orbitron">
-                {getCategoryByNameId(item.nameId, categories)?.name}
-              </p>
+              <div className="flex flex-col items-center gap-2">
+                <h2 className="font-bold text-white sm:text-xl font-orbitron capitalize">
+                  {getCategoryByNameId(item.nameId, categories)?.name}
+                </h2>
+
+                <div className="flex items-center justify-center gap-2">
+                  <div
+                    className={twJoin(
+                      "rounded-full h-2 w-2",
+                      item.active ? "bg-green-400" : "bg-red-400"
+                    )}
+                  />
+
+                  <p>{item.active ? "Premiado" : "No premiado"} este año</p>
+                </div>
+              </div>
             </button>
           );
         })}

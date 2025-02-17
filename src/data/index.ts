@@ -1,10 +1,11 @@
-import { FaUserClock, FaPeopleCarry, FaInstagram } from "react-icons/fa";
+import { FaUserClock, FaPeopleCarry } from "react-icons/fa";
 import { FiCamera } from "react-icons/fi";
 import {
   FaPeopleGroup,
   FaPersonHiking,
   FaPersonShelter,
   FaPersonWalking,
+  FaUsersViewfinder,
 } from "react-icons/fa6";
 import { GiFaceToFace } from "react-icons/gi";
 import { TbMoodHappy } from "react-icons/tb";
@@ -58,6 +59,6 @@ export const CATEGORY_ICONS = {
   "most-responsible": MdAdminPanelSettings,
   "most-assist": FaPersonWalking,
   "parents-young": MdFamilyRestroom,
-  "most-influencer": FaInstagram,
+  "most-influencer": FaUsersViewfinder,
   "": IoPerson,
 };

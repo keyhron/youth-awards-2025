@@ -40,20 +40,10 @@ const Navbar = () => {
           </ul>
 
           <div className="flex items-center gap-2">
-            {enabledNewVote ? (
+            {enabledNewVote && (
               <Link href="/nuevo-voto" className="hidden md:flex">
                 <Button label="Votar" variant="white" className="uppercase" />
               </Link>
-            ) : (
-              <>
-                {/* 
-                <Button
-                  label="Radio"
-                  variant="white"
-                  className="uppercase hidden md:flex"
-                />
-                */}
-              </>
             )}
 
             <IconButton
@@ -81,16 +71,6 @@ const Navbar = () => {
                   Votar
                 </Link>
               )}
-
-              {/* <Link
-                href="/"
-                className="px-4 py-3"
-                onClick={() => {
-                  // TODO: Open radioo
-                }}
-              >
-                Radio
-              </Link> */}
             </nav>
           )}
         </div>

@@ -2,21 +2,19 @@
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { FaPause, FaPlay, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
+import { FaRadio } from "react-icons/fa6";
+
 import Button from "../atoms/Button";
 
 const URL_RADIO = "https://serverstreamgroup.biz:8042/stream";
 
-interface RadioPlayerProps {
-  onClose?: () => void;
-  autoPlay?: boolean;
-}
-
-const RadioPlayer = ({ onClose }: RadioPlayerProps) => {
+const RadioPlayer = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [isLoading, setIsLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -59,6 +57,26 @@ const RadioPlayer = ({ onClose }: RadioPlayerProps) => {
   const handleVolumeChange = (event: ChangeEvent<HTMLInputElement>) => {
     setVolume(+event.target.value);
   };
+
+  const onOpen = () => {
+    setIsOpen(true);
+  };
+
+  const onClose = () => {
+    setIsOpen(false);
+    audioRef.current = null;
+  };
+
+  if (!isOpen) {
+    return (
+      <button
+        className="cursor-pointer fixed z-50 shadow-md bg-white p-4 flex items-center justify-between gap-3 max-w-[24rem] left-auto bottom-10 right-10 rounded-md"
+        onClick={onOpen}
+      >
+        <FaRadio color="#000" />
+      </button>
+    );
+  }
 
   return (
     <div className="fixed z-50 bottom-0 left-0 rounded-t-md w-full shadow-md bg-white text-black p-4 flex flex-col gap-3 md:max-w-[24rem] md:left-auto md:bottom-10 md:right-10 md:rounded-md">
