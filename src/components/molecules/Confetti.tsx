@@ -18,8 +18,8 @@ const Confetti = () => {
       className="max-w-full"
       width={width}
       height={height}
-      initialVelocityY={50}
-      numberOfPieces={300}
+      numberOfPieces={50}
+      colors={["#db3c30", "#352bc3"]}
     />
   );
 };

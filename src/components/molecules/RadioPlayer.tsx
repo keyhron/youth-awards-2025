@@ -14,7 +14,7 @@ const RadioPlayer = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [isLoading, setIsLoading] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -64,6 +64,8 @@ const RadioPlayer = () => {
 
   const onClose = () => {
     setIsOpen(false);
+    setIsPlaying(false);
+    setIsMuted(false);
     audioRef.current = null;
   };
 
