@@ -7,6 +7,7 @@ import FormControl from "../molecules/FormControl";
 import Image from "next/image";
 import { createNominated } from "@/services/firebaseService";
 import { twMerge } from "tailwind-merge";
+import Input from "../atoms/Input";
 
 export interface INewNominated {
   name: string;
@@ -20,27 +21,42 @@ const CreateNominatedForm = ({
   nominatedsImage: string[];
 }) => {
   const [nominatedName, setNominatedName] = useState("");
-  const [nominatedCategory, setNominatedCategory] = useState("");
   const [nominatedImage, setNominatedImage] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const categories = useAppSelector((state) => state.nominateds.categories);
+  const categoriesActive = categories.filter((item) => item.active);
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(category)
+        ? prev.filter((item) => item !== category)
+        : [...prev, category]
+    );
+  };
 
   const handleSubmit = async () => {
     try {
-      if (!nominatedName || !nominatedCategory || !nominatedImage) {
+      if (
+        !nominatedName ||
+        selectedCategories.length === 0 ||
+        !nominatedImage
+      ) {
         return alert("Todos los campos son obligatorios");
       }
 
       // Submit data
-      await createNominated({
-        name: nominatedName,
-        category: nominatedCategory,
-        image: nominatedImage,
+      selectedCategories.forEach(async (item) => {
+        await createNominated({
+          name: nominatedName?.trim(),
+          category: item,
+          image: nominatedImage,
+        });
       });
 
       // Clear states
-      setNominatedCategory("");
       setNominatedImage("");
       setNominatedName("");
+      setSelectedCategories([]);
       alert("Nominado creado correctamente");
     } catch (error) {
       alert(error);
@@ -58,20 +74,22 @@ const CreateNominatedForm = ({
       <div className="flex flex-col gap-6 mt-10">
         <div className="flex flex-col gap-2">
           <FormControl
-            label="Nombres"
-            inputProps={{
-              id: "fullname",
-              placeholder: "Ej: Carlos Sánchez",
-              required: true,
-              value: nominatedName,
-              onChange: (e) => {
-                setNominatedName(e.target.value);
-              },
-            }}
+            label="Nombre y apellidos"
             labelProps={{
               htmlFor: "fullname",
             }}
-          />
+          >
+            <Input
+              id="fullname"
+              placeholder="Ej: Carlos Sánchez"
+              required={true}
+              value={nominatedName}
+              onChange={(e) => {
+                setNominatedName(e.target.value);
+              }}
+            />
+          </FormControl>
+
           <p className="text-sm text-primary">
             Pedimos tu nombre para saber que si ya votaste no repetir. Si no
             eres de la misión 63 no puedes participar.
@@ -79,32 +97,25 @@ const CreateNominatedForm = ({
         </div>
 
         <FormControl
-          select
-          label="Categoría"
-          selectProps={{
-            id: "category",
-            required: true,
-            value: nominatedCategory,
-            onChange: (e) => {
-              setNominatedCategory(e.target.value);
-            },
-            children: (
-              <>
-                <option value="" disabled>
-                  Elige una categoría
-                </option>
-                {categories.map((item) => (
-                  <option value={item.nameId} key={item.nameId}>
-                    {item.name}
-                  </option>
-                ))}
-              </>
-            ),
-          }}
+          label="Categorías"
           labelProps={{
-            htmlFor: "category",
+            htmlFor: "categories",
           }}
-        />
+        >
+          <div id="categories" className="grid gap-2 sm:grid-cols-3">
+            {categoriesActive.map((item) => (
+              <label key={item.nameId} className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  value={item.nameId}
+                  checked={selectedCategories.includes(item.nameId)}
+                  onChange={() => handleCategoryChange(item.nameId)}
+                />
+                {item.name}
+              </label>
+            ))}
+          </div>
+        </FormControl>
 
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
           {nominatedsImage.map((item) => (

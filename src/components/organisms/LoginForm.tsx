@@ -6,6 +6,7 @@ import Button from "../atoms/Button";
 import { loginService } from "@/services/firebaseService";
 import { useAppDispatch } from "@/lib/hooks";
 import { signIn } from "@/lib/reducers/authReducer";
+import Input from "../atoms/Input";
 
 const LoginForm = () => {
   const [data, setData] = useState({
@@ -40,30 +41,33 @@ const LoginForm = () => {
         <div className="flex flex-col gap-4">
           <FormControl
             label="Correo electrónico"
-            inputProps={{
-              id: "email",
-              type: "email",
-              value: data.email,
-              onChange: (e) => setData({ ...data, email: e.target.value }),
-              required: true,
-            }}
             labelProps={{
               htmlFor: "email",
             }}
-          />
+          >
+            <Input
+              id="email"
+              type="email"
+              value={data.email}
+              onChange={(e) => setData({ ...data, email: e.target.value })}
+              required={true}
+            />
+          </FormControl>
+
           <FormControl
             label="Contraseña"
-            inputProps={{
-              id: "password",
-              type: "password",
-              value: data.password,
-              onChange: (e) => setData({ ...data, password: e.target.value }),
-              required: true,
-            }}
             labelProps={{
               htmlFor: "password",
             }}
-          />
+          >
+            <Input
+              id="password"
+              type="password"
+              value={data.password}
+              onChange={(e) => setData({ ...data, password: e.target.value })}
+              required={true}
+            />
+          </FormControl>
         </div>
 
         <Button

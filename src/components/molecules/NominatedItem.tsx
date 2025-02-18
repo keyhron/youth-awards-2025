@@ -1,23 +1,23 @@
-import { useAppSelector } from "@/lib/hooks";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 
 const NominatedItem = ({
   nominated,
   showCategory,
+  showVotes,
   isVoting,
   isSelected,
   onSelect,
+  withCrowns,
 }: {
   nominated: Nominated;
-  showVotes?: boolean;
   showCategory?: string;
+  showVotes?: boolean;
   isVoting?: boolean;
   isSelected?: boolean;
   onSelect?: (item: Nominated) => void;
+  withCrowns?: boolean;
 }) => {
-  const showVotes = useAppSelector((item) => item.nominateds.showVotes);
-
   const validateClassname = () => {
     if (isVoting) {
       return isSelected ? "opacity-100" : "opacity-50 grayscale";
@@ -28,12 +28,18 @@ const NominatedItem = ({
   return (
     <div
       className={twMerge(
-        "border border-primary flex flex-col hover:shadow-md",
+        "border border-primary flex flex-col hover:shadow-md relative",
         isVoting ? "cursor-pointer" : "",
         validateClassname()
       )}
       onClick={() => onSelect?.(nominated)}
     >
+      {nominated.winner && withCrowns && (
+        <div className="absolute -top-10 -right-5 rotate-12">
+          <Image src="/images/crown.png" alt="crown" width={80} height={50} />
+        </div>
+      )}
+
       <Image
         src={nominated.image}
         alt="Nominated image"
@@ -48,7 +54,7 @@ const NominatedItem = ({
           {nominated.name}
         </p>
 
-        {showVotes && <p>Con {nominated.votes} votos</p>}
+        {showVotes && nominated.winner && <p>Con {nominated.votes} votos</p>}
       </div>
     </div>
   );

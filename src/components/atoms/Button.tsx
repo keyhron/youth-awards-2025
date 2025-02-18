@@ -32,7 +32,7 @@ const Button = ({
       className={twMerge(
         "px-5 py-2.5 rounded-full font-bold text-xs cursor-pointer",
         BUTTON_VARIANTS[variant as "primary"],
-        disabled ? "opacity-50" : "",
+        disabled ? "opacity-50 cursor-not-allowed" : "",
         className
       )}
       disabled={disabled}

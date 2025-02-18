@@ -170,7 +170,7 @@ const winners2022: Nominated[] = [
     winner: true,
     created: 1643395131988,
     image:
-      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds%2FtED2brJu3CJeMrfPMYv22F.jpeg?alt=media&token=e2636c13-3dd3-4f68-8c8c-3ab79d7515d7",
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds%2FrqYvUdagoYeDzPzLH5XBD5.jpeg?alt=media&token=1068698b-9e18-4156-8faf-b72de392e165",
     category: "most-persistent",
   },
   {
@@ -190,7 +190,7 @@ const winners2022: Nominated[] = [
     winner: true,
     votes: 22,
     image:
-      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds%2FrBoiAM3xghBhuhd4ouxm6d.jpeg?alt=media&token=7d595f0b-7ccb-48d2-ad9b-9cb1a244f4e5",
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds%2F3kg8HUwm2hNbNgkEzk9Qpc.jpeg?alt=media&token=304c150d-2a27-41b5-8d9a-fa8a835f5e74",
     name: "Maikel Vargas",
   },
   {
@@ -226,7 +226,7 @@ const winners2022: Nominated[] = [
   {
     id: "hLdIHbEnhPdDwSQ6AzqM",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds%2FdKVa5k1miUDBJA77phNm13.jpeg?alt=media&token=44ee73fb-a894-4172-bc79-ce1b9abea65b",
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds%2FaWd2LSR1RbHuoyh9mRzydd.jpeg?alt=media&token=8563782c-694c-4b6c-bca6-fae07ef2f67a",
     winner: true,
     category: "most-new",
     name: "Melianny",
@@ -239,7 +239,7 @@ const winners2022: Nominated[] = [
     winner: true,
     created: 1643392255847,
     image:
-      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds%2FubRD8imxhScLRq9HNqzA8i.jpeg?alt=media&token=07eba0ca-2367-4f7b-8c04-cab9dd1ea607",
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds%2F4xyqBaHSD2XapWEQ9K9joE.jpeg?alt=media&token=06803edc-927b-468f-9c57-c2f6139d8c12",
     name: "Dionelvy Aguilera",
     votes: 16,
   },

@@ -5,7 +5,6 @@ interface NominatedState {
   nominateds: Nominated[];
   winners: Nominated[];
   votes: Vote[];
-  showVotes: boolean;
 }
 
 const nominatedsSlice = createSlice({
@@ -15,7 +14,6 @@ const nominatedsSlice = createSlice({
     nominateds: [],
     winners: [],
     votes: [],
-    showVotes: false,
   } as NominatedState,
   reducers: {
     initializeStore(state, action) {
@@ -23,7 +21,6 @@ const nominatedsSlice = createSlice({
     },
     setNominateds(state, action) {
       state.nominateds = action.payload;
-      state.showVotes = action.payload.some((item: Nominated) => item.winner);
       state.winners =
         action.payload?.filter((nominated: Nominated) => nominated.winner) ||
         [];

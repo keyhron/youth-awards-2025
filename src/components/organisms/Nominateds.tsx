@@ -4,10 +4,12 @@ import { useAppSelector } from "@/lib/hooks";
 import { getNominatedsByCategory } from "@/utils/category";
 import Label from "../atoms/Label";
 import NominatedItem from "../molecules/NominatedItem";
+import { twJoin } from "tailwind-merge";
 
 const Nominateds = () => {
   const nominateds = useAppSelector((state) => state.nominateds.nominateds);
   const categories = useAppSelector((state) => state.nominateds.categories);
+  const showVotes = nominateds.some((item) => item.winner);
 
   const nominatedsByCategory: NominatedByCategory[] = useMemo(() => {
     return getNominatedsByCategory(nominateds, categories);
@@ -21,7 +23,10 @@ const Nominateds = () => {
           {nominatedsByCategory.map((items) =>
             items.nominateds.length > 0 ? (
               <div
-                className="flex flex-col mt-14"
+                className={twJoin(
+                  "flex flex-col mt-14",
+                  showVotes ? "gap-5" : "gap-2"
+                )}
                 key={items.category.id}
                 id={items.category.name}
               >
@@ -31,7 +36,12 @@ const Nominateds = () => {
 
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full mt-4 gap-3 sm:gap-4 text-center">
                   {items.nominateds.map((item, i) => (
-                    <NominatedItem nominated={item} key={i} showVotes={true} />
+                    <NominatedItem
+                      nominated={item}
+                      key={i}
+                      showVotes={showVotes}
+                      withCrowns
+                    />
                   ))}
                 </div>
               </div>

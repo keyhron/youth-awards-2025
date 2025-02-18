@@ -19,6 +19,7 @@ const Votes = () => {
   const isReady = useAppSelector((state) => state.auth.uid !== null);
 
   const nominateds = useAppSelector((state) => state.nominateds.nominateds);
+  const winners = useAppSelector((state) => state.nominateds.winners);
   const categories = useAppSelector((state) =>
     state.nominateds.categories.filter((item) => item.active)
   );
@@ -39,7 +40,7 @@ const Votes = () => {
     };
   }, []);
 
-  const handleWinners = async () => {
+  const handleCheckWinners = async () => {
     //  Order all votes
     const allVotes: Nominated[] = votes.reduce(function (
       acc: Nominated[],
@@ -106,14 +107,17 @@ const Votes = () => {
     },
     []);
 
-    console.log({ winners });
-
     dispatch(addWinners(finalNominateds));
-    await updateNominateds(finalNominateds);
-    alert("Se han generado los ganadores");
   };
 
-  const handleReset = async () => {
+  const handleAddWinners = async () => {
+    if (winners.length > 0) {
+      await updateNominateds(winners);
+      alert("Se han generado los ganadores");
+    }
+  };
+
+  const handleResetRedux = async () => {
     //  Get all nominateds to delete
     const nominatedsToUpdate = nominateds.reduce(function (
       acc: Nominated[],
@@ -127,10 +131,16 @@ const Votes = () => {
     []);
 
     dispatch(resetWinners(nominatedsToUpdate));
+
+    return nominatedsToUpdate;
+  };
+
+  const handleReset = async () => {
+    const nominatedsToUpdate = await handleResetRedux();
     await updateNominateds(nominatedsToUpdate, votes);
     alert("Votos reiniciados");
-    // await deleteVotes()
   };
+
   return (
     <section className="min-h-screen py-20 flex flex-col container mx-auto px-4">
       <Label labelTop="Lista de" labelUnder="votos" />
@@ -194,8 +204,24 @@ const Votes = () => {
         )}
         {isAuthenticated && isReady && (
           <>
-            <Button label="Generar resultado" onClick={handleWinners} />
-            <Button label="Reiniciar votos" onClick={handleReset} />
+            {votes.length > 0 && (
+              <Button label="Ir a resultados" onClick={handleCheckWinners} />
+            )}
+
+            {winners.length > 0 && (
+              <>
+                <Button
+                  label="Publicar resultados"
+                  onClick={handleAddWinners}
+                />
+                <Button label="Reiniciar votos" onClick={handleResetRedux} />
+                <Button
+                  label="Reiniciar votos de firebase"
+                  onClick={handleReset}
+                />
+              </>
+            )}
+
             <Link href="/crear-nominado">
               <Button label="Crear nominado" variant="secondary" />
             </Link>

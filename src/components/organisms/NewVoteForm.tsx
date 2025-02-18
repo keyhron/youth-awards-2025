@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import NominatedItem from "../molecules/NominatedItem";
 import { createVote } from "@/services/firebaseService";
 import { enabledNewVote, year } from "@/data";
+import Input from "../atoms/Input";
 
 const STEPS_LABEL = ["Completa los campos", "Vota por tus preferidos"];
 
@@ -118,17 +119,18 @@ const NewVoteForm = () => {
 
             <FormControl
               label="Escribe tus nombres y apellidos:"
-              inputProps={{
-                id: "fullname",
-                placeholder: "Ej: Carlos Sánchez",
-                value: fullname,
-                onChange: (e) => setFullname(e.target.value),
-                required: true,
-              }}
               labelProps={{
                 htmlFor: "fullname",
               }}
-            />
+            >
+              <Input
+                id="fullname"
+                placeholder="Ej: Carlos Sánchez"
+                value={fullname}
+                onChange={(e) => setFullname(e.target.value)}
+                required={true}
+              />
+            </FormControl>
 
             {fullname.length < 12 && (
               <p className="text-sm text-primary">
@@ -140,18 +142,19 @@ const NewVoteForm = () => {
           <div className="flex flex-col gap-2">
             <FormControl
               label="¿Cómo defines la juventud de nuestra iglesia?"
-              inputProps={{
-                id: "question1",
-                placeholder: "La defino como...",
-                value: howDefine,
-                onChange: (e) => setHowDefine(e.target.value),
-                required: true,
-                minLength: 12,
-              }}
               labelProps={{
                 htmlFor: "question1",
               }}
-            />
+            >
+              <Input
+                id="question1"
+                placeholder="La defino como..."
+                value={howDefine}
+                onChange={(e) => setHowDefine(e.target.value)}
+                required={true}
+                minLength={12}
+              />
+            </FormControl>
 
             {howDefine.length < 12 && (
               <p className="text-sm text-primary">
@@ -163,18 +166,19 @@ const NewVoteForm = () => {
           <div className="flex flex-col gap-2">
             <FormControl
               label="¿Qué es para ti ser joven cristiano?"
-              inputProps={{
-                id: "question2",
-                placeholder: "Para mí es...",
-                value: forMeIs,
-                onChange: (e) => setForMeIs(e.target.value),
-                required: true,
-                minLength: 12,
-              }}
               labelProps={{
                 htmlFor: "question2",
               }}
-            />
+            >
+              <Input
+                id="question2"
+                placeholder="Para mí es..."
+                value={forMeIs}
+                onChange={(e) => setForMeIs(e.target.value)}
+                required={true}
+                minLength={12}
+              />
+            </FormControl>
             {forMeIs.length < 12 && (
               <p className="text-sm text-primary">
                 Debes escribir mínimo 12 cáracteres
@@ -185,18 +189,19 @@ const NewVoteForm = () => {
           <div className="flex flex-col gap-2">
             <FormControl
               label={`¿Qué aspiras para este ${year}?`}
-              inputProps={{
-                id: "question3",
-                placeholder: `Para este ${year} aspiro...`,
-                value: forThisYear,
-                onChange: (e) => setForThisYear(e.target.value),
-                required: true,
-                minLength: 12,
-              }}
               labelProps={{
                 htmlFor: "question3",
               }}
-            />
+            >
+              <Input
+                id="question3"
+                placeholder={`Para este ${year} aspiro...`}
+                value={forThisYear}
+                onChange={(e) => setForThisYear(e.target.value)}
+                required={true}
+                minLength={12}
+              />
+            </FormControl>
             {forThisYear.length < 12 && (
               <p className="text-sm text-primary">
                 Debes escribir mínimo 12 cáracteres
