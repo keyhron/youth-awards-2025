@@ -15,6 +15,7 @@ const RadioPlayer = () => {
   const [volume, setVolume] = useState(0.5);
   const [isLoading, setIsLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -24,6 +25,7 @@ const RadioPlayer = () => {
 
   const handleLoadedData = () => {
     setIsLoading(false);
+    setIsError(false);
   };
 
   const toggleMuted = () => {
@@ -82,7 +84,12 @@ const RadioPlayer = () => {
 
   return (
     <div className="fixed z-50 bottom-0 left-0 rounded-t-md w-full shadow-md bg-white text-black p-4 flex flex-col gap-3 md:max-w-[24rem] md:left-auto md:bottom-10 md:right-10 md:rounded-md">
-      <audio ref={audioRef} autoPlay={false} onLoadedData={handleLoadedData}>
+      <audio
+        ref={audioRef}
+        autoPlay={false}
+        onLoadedData={handleLoadedData}
+        onError={() => setIsError(true)}
+      >
         <source src={URL_RADIO} type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
@@ -98,42 +105,51 @@ const RadioPlayer = () => {
       </div>
 
       <div className="flex items-center justify-between">
-        {isLoading ? (
-          <p>Cargando radio...</p>
+        {isError ? (
+          <p>La radio no se encuentra disponible en este momento.</p>
         ) : (
           <>
-            <div className="flex items-center gap-0.5">
-              <Button
-                className="p-2"
-                variant="secondary"
-                label={isPlaying ? <FaPause size={14} /> : <FaPlay size={14} />}
-                onClick={togglePlayPause}
-              />
+            {" "}
+            {isLoading ? (
+              <p>Cargando radio...</p>
+            ) : (
+              <>
+                <div className="flex items-center gap-0.5">
+                  <Button
+                    className="p-2"
+                    variant="secondary"
+                    label={
+                      isPlaying ? <FaPause size={14} /> : <FaPlay size={14} />
+                    }
+                    onClick={togglePlayPause}
+                  />
 
-              <Button
-                className="p-2"
-                variant="secondary"
-                label={
-                  !isMuted ? (
-                    <FaVolumeUp size={14} />
-                  ) : (
-                    <FaVolumeMute size={14} />
-                  )
-                }
-                onClick={toggleMuted}
-              />
-            </div>
+                  <Button
+                    className="p-2"
+                    variant="secondary"
+                    label={
+                      !isMuted ? (
+                        <FaVolumeUp size={14} />
+                      ) : (
+                        <FaVolumeMute size={14} />
+                      )
+                    }
+                    onClick={toggleMuted}
+                  />
+                </div>
 
-            {!isMuted && (
-              <input
-                type="range"
-                value={volume}
-                min="0"
-                max="1"
-                step="0.01"
-                onChange={handleVolumeChange}
-                className="custom-range max-w-[10rem]"
-              />
+                {!isMuted && (
+                  <input
+                    type="range"
+                    value={volume}
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    onChange={handleVolumeChange}
+                    className="custom-range max-w-[10rem]"
+                  />
+                )}
+              </>
             )}
           </>
         )}

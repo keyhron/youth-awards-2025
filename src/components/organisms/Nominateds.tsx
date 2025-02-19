@@ -34,7 +34,7 @@ const Nominateds = () => {
                   <p>Nominados a {items.category.name}</p>
                 </div>
 
-                <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full mt-4 gap-3 sm:gap-4 text-center">
+                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 w-full mt-4 gap-3 sm:gap-4 text-center">
                   {items.nominateds.map((item, i) => (
                     <NominatedItem
                       nominated={item}

@@ -72,29 +72,22 @@ const CreateNominatedForm = ({
       </div>
 
       <div className="flex flex-col gap-6 mt-10">
-        <div className="flex flex-col gap-2">
-          <FormControl
-            label="Nombre y apellidos"
-            labelProps={{
-              htmlFor: "fullname",
+        <FormControl
+          label="Nombre y apellidos"
+          labelProps={{
+            htmlFor: "fullname",
+          }}
+        >
+          <Input
+            id="fullname"
+            placeholder="Ej: Carlos Sánchez"
+            required={true}
+            value={nominatedName}
+            onChange={(e) => {
+              setNominatedName(e.target.value);
             }}
-          >
-            <Input
-              id="fullname"
-              placeholder="Ej: Carlos Sánchez"
-              required={true}
-              value={nominatedName}
-              onChange={(e) => {
-                setNominatedName(e.target.value);
-              }}
-            />
-          </FormControl>
-
-          <p className="text-sm text-primary">
-            Pedimos tu nombre para saber que si ya votaste no repetir. Si no
-            eres de la misión 63 no puedes participar.
-          </p>
-        </div>
+          />
+        </FormControl>
 
         <FormControl
           label="Categorías"
