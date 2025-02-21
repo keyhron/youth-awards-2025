@@ -23,7 +23,7 @@ const Categories = () => {
           return (
             <button
               className={twJoin(
-                "border flex flex-col hover:shadow-md px-6 py-10 items-center justify-center text-sm font-light gap-5 bg-neutral-950",
+                "border flex flex-col hover:shadow-md px-2 py-10 items-center justify-center text-sm font-light gap-5 bg-neutral-950 sm:px-6",
                 item.active ? "cursor-pointer" : "cursor-default",
                 item.active ? "border-green-400" : "border-red-400"
               )}
@@ -41,15 +41,17 @@ const Categories = () => {
                   {getCategoryByNameId(item.nameId, categories)?.name}
                 </h2>
 
-                <div className="flex items-center justify-center gap-2">
+                <div className="flex items-center justify-center gap-1.5 sm:gap-2">
                   <div
                     className={twJoin(
-                      "rounded-full h-2 w-2",
+                      "rounded-full h-1 w-1 sm:h-2 sm:w-2",
                       item.active ? "bg-green-400" : "bg-red-400"
                     )}
                   />
 
-                  <p>{item.active ? "Premiado" : "No premiado"} este año</p>
+                  <p className="text-[10px] sm:text-base">
+                    {item.active ? "Premiado" : "No premiado"} este año
+                  </p>
                 </div>
               </div>
             </button>

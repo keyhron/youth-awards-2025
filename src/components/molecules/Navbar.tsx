@@ -17,11 +17,11 @@ const Navbar = () => {
     <>
       <nav
         className={twMerge(
-          "w-full py-6 text-sm text-white",
+          "w-full py-6 text-sm text-white relative",
           openMenu ? "bg-white text-black" : ""
         )}
       >
-        <div className="container px-4 mx-auto flex justify-between items-center h-full relative">
+        <div className="container px-4 mx-auto flex justify-between items-center h-full">
           <Link href="/" className="text-lg font-orbitron">
             Misión Guanare 63
           </Link>
@@ -58,22 +58,22 @@ const Navbar = () => {
               )}
             </IconButton>
           </div>
-
-          {openMenu && (
-            <nav className="absolute top-[calc(100%+10px)] left-0 w-full py-2 text-xs bg-white text-black rounded-b-lg flex flex-col uppercase font-medium md:hidden">
-              {navbarOptions.map((item) => (
-                <Link href={item.href} className="px-4 py-3" key={item.href}>
-                  {item.name}
-                </Link>
-              ))}
-              {enabledNewVote && (
-                <Link href="/nuevo-voto" className="px-4 py-3">
-                  Votar
-                </Link>
-              )}
-            </nav>
-          )}
         </div>
+
+        {openMenu && (
+          <nav className="absolute top-[100%] left-0 w-full py-2 text-xs bg-white text-black rounded-b-lg flex flex-col uppercase font-medium md:hidden">
+            {navbarOptions.map((item) => (
+              <Link href={item.href} className="px-4 py-3" key={item.href}>
+                {item.name}
+              </Link>
+            ))}
+            {enabledNewVote && (
+              <Link href="/nuevo-voto" className="px-4 py-3">
+                Votar
+              </Link>
+            )}
+          </nav>
+        )}
       </nav>
     </>
   );
