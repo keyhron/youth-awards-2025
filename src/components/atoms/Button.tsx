@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { useReward } from "react-rewards";
 import { twMerge } from "tailwind-merge";
 
 const BUTTON_VARIANTS = {
@@ -18,6 +19,7 @@ const BUTTON_VARIANTS = {
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: keyof typeof BUTTON_VARIANTS;
   label: ReactNode;
+  id: string;
 }
 
 const Button = ({
@@ -25,8 +27,12 @@ const Button = ({
   className,
   disabled,
   variant = "primary",
+  id,
+  onClick,
   ...rest
 }: IButton) => {
+  const { reward } = useReward(id, "confetti");
+
   return (
     <button
       className={twMerge(
@@ -36,8 +42,15 @@ const Button = ({
         className
       )}
       disabled={disabled}
+      onClick={(ev) => {
+        console.log(reward);
+        console.log(id);
+        reward();
+        onClick?.(ev);
+      }}
       {...rest}
     >
+      <span id={id} />
       {label}
     </button>
   );

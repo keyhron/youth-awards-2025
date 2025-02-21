@@ -129,7 +129,12 @@ const CreateNominatedForm = ({
       </div>
 
       <div className="mt-10">
-        <Button label="Crear nominado" variant="white" onClick={handleSubmit} />
+        <Button
+          id="create-nominated"
+          label="Crear nominado"
+          variant="white"
+          onClick={handleSubmit}
+        />
       </div>
     </section>
   );

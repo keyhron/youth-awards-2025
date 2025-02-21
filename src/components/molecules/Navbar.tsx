@@ -42,7 +42,12 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             {enabledNewVote && (
               <Link href="/nuevo-voto" className="hidden md:flex">
-                <Button label="Votar" variant="white" className="uppercase" />
+                <Button
+                  label="Votar"
+                  variant="white"
+                  className="uppercase"
+                  id="vote"
+                />
               </Link>
             )}
 

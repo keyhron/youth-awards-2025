@@ -199,23 +199,33 @@ const Votes = () => {
       <div className="flex items-center gap-3 mt-10">
         {enabledNewVote && (
           <Link href="/nuevo-voto">
-            <Button label="Nuevo voto" variant="white" />
+            <Button id="new-vote" label="Nuevo voto" variant="white" />
           </Link>
         )}
         {isAuthenticated && isReady && (
           <>
             {votes.length > 0 && (
-              <Button label="Ir a resultados" onClick={handleCheckWinners} />
+              <Button
+                id="results"
+                label="Ir a resultados"
+                onClick={handleCheckWinners}
+              />
             )}
 
             {winners.length > 0 && (
               <>
                 <Button
+                  id="post"
                   label="Publicar resultados"
                   onClick={handleAddWinners}
                 />
-                <Button label="Reiniciar votos" onClick={handleResetRedux} />
                 <Button
+                  id="reset"
+                  label="Reiniciar votos"
+                  onClick={handleResetRedux}
+                />
+                <Button
+                  id="reset-all"
                   label="Reiniciar votos de firebase"
                   onClick={handleReset}
                 />
@@ -223,7 +233,11 @@ const Votes = () => {
             )}
 
             <Link href="/crear-nominado">
-              <Button label="Crear nominado" variant="secondary" />
+              <Button
+                id="create-nominated-2"
+                label="Crear nominado"
+                variant="secondary"
+              />
             </Link>
           </>
         )}

@@ -116,6 +116,7 @@ const RadioPlayer = () => {
               <>
                 <div className="flex items-center gap-0.5">
                   <Button
+                    id="play"
                     className="p-2"
                     variant="secondary"
                     label={
@@ -125,6 +126,7 @@ const RadioPlayer = () => {
                   />
 
                   <Button
+                    id="pause"
                     className="p-2"
                     variant="secondary"
                     label={

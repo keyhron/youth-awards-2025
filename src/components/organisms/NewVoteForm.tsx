@@ -245,9 +245,15 @@ const NewVoteForm = () => {
 
       <div className="flex items-center gap-3 mt-10">
         {step === 1 && (
-          <Button label="Atras" variant="secondary" onClick={handleBack} />
+          <Button
+            id="back"
+            label="Atras"
+            variant="secondary"
+            onClick={handleBack}
+          />
         )}
         <Button
+          id="next"
           label={lastStepVote ? "Confirmar votos" : "Siguiente"}
           variant="white"
           onClick={handleNext}

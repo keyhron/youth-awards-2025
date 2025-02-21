@@ -71,6 +71,7 @@ const LoginForm = () => {
         </div>
 
         <Button
+          id="login"
           label="Iniciar sesión"
           disabled={!canSubmit}
           onClick={handleSubmit}

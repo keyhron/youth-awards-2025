@@ -18,7 +18,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero-03.jpg",
+        url: "/images/hero-3.png",
         width: 1200,
         height: 630,
         alt: "Crown image",
