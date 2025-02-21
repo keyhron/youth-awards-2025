@@ -11,6 +11,25 @@ import RadioPlayer from "@/components/molecules/RadioPlayer";
 export const metadata = {
   title: pageName,
   description: `La misión Guanare 63 te invita a nuestro gran evento para que disfrutes de la presencia de Jehová y de las nominaciones a los Premios Juventud ${year}, no te lo puedes perder`,
+  openGraph: {
+    title: pageName,
+    description: `La misión Guanare 63 te invita a nuestro gran evento para que disfrutes de la presencia de Jehová y de las nominaciones a los Premios Juventud ${year}, no te lo puedes perder`,
+    url: "https://juanbarrios.vercel.app",
+    type: "website",
+    images: [
+      {
+        url: "/images/hero-03.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Crown image",
+      },
+    ],
+  },
+  twitter: {
+    handle: "@keyhron",
+    site: "@keyhron",
+    cardType: "summary_large_image",
+  },
 };
 export default async function RootLayout({
   children,
