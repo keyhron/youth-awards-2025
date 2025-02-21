@@ -24,7 +24,7 @@ const Hero = () => {
               gran evento.
             </p>
 
-            <p className="sm:text-lg font-bold mt-5">23 de febrero de {year}</p>
+            <p className="sm:text-lg font-bold mt-5">27 de febrero de {year}</p>
             <p className="sm:text-lg font-bold">
               En La Iglesia Luz Del Mundo Misión Guanare 63
             </p>
