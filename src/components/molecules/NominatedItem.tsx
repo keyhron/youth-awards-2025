@@ -54,7 +54,7 @@ const NominatedItem = ({
           {nominated.name}
         </p>
 
-        {showVotes && nominated.winner && <p>Con {nominated.votes} votos</p>}
+        {showVotes && <p>Con {nominated.votes} votos</p>}
       </div>
     </div>
   );
