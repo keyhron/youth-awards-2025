@@ -28,7 +28,7 @@ const NominatedItem = ({
   return (
     <div
       className={twMerge(
-        "border border-primary flex flex-col hover:shadow-md relative",
+        "border border-primary bg-[#FFE08A] flex flex-col hover:shadow-xl transition-shadow relative",
         isVoting ? "cursor-pointer" : "",
         validateClassname()
       )}
@@ -49,12 +49,12 @@ const NominatedItem = ({
       />
 
       <div className="p-5 flex flex-col items-center justify-center gap-2 text-sm capitalize font-light">
-        {showCategory && <p className="capitalize">{showCategory}</p>}
-        <p className="font-bold text-primary text-xl font-orbitron">
+        {showCategory && <p className="capitalize text-neutral-500">{showCategory}</p>}
+        <p className="font-bold text-black text-xl font-orbitron">
           {nominated.name}
         </p>
 
-        {showVotes && nominated.winner && <p>Con {nominated.votes} votos</p>}
+        {showVotes && nominated.winner && <p className="text-secondary">Con {nominated.votes} votos</p>}
       </div>
     </div>
   );

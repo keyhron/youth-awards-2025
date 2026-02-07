@@ -1,5 +1,5 @@
 import { FaUserClock, FaPeopleCarry } from "react-icons/fa";
-import { FiCamera } from "react-icons/fi";
+import { FaCamera } from "react-icons/fa";
 import {
   FaPeopleGroup,
   FaPersonHiking,
@@ -7,11 +7,11 @@ import {
   FaPersonWalking,
   FaUsersViewfinder,
 } from "react-icons/fa6";
-import { GiFaceToFace } from "react-icons/gi";
-import { TbMoodHappy } from "react-icons/tb";
-import { RiShirtLine } from "react-icons/ri";
+import { GiFaceToFace, GiBeamsAura } from "react-icons/gi";
 import { IoPerson } from "react-icons/io5";
 import { MdAdminPanelSettings, MdFamilyRestroom } from "react-icons/md";
+import { PiShirtFoldedFill } from "react-icons/pi";
+import { BsEmojiLaughingFill } from "react-icons/bs";
 
 export const navbarOptions = [
   {
@@ -29,10 +29,10 @@ export const navbarOptions = [
 ];
 
 export const pageName = "Premios Juventud";
-export const year = "2025";
+export const year = "2026";
 export const email = "juanbarrios045@gmail.com";
 export const enabledNewVote = Boolean(
-  process.env.NEXT_PUBLIC_ENABLED_VOTES ?? false
+  process.env.NEXT_PUBLIC_ENABLED_VOTES ?? false,
 );
 
 export const footerOptions = [
@@ -48,17 +48,18 @@ export const footerOptions = [
 
 export const CATEGORY_ICONS = {
   "most-punctual": FaUserClock,
-  "most-photogenic": FiCamera,
+  "most-photogenic": FaCamera,
   "most-collaborator": FaPeopleCarry,
   "most-persistent": FaPersonHiking,
   "most-outstading": FaPeopleGroup,
   "most-new": FaPersonShelter,
   "most-serious": GiFaceToFace,
-  "most-happy": TbMoodHappy,
-  "most-style": RiShirtLine,
+  "most-happy": BsEmojiLaughingFill,
+  "most-style": PiShirtFoldedFill,
   "most-responsible": MdAdminPanelSettings,
   "most-assist": FaPersonWalking,
   "parents-young": MdFamilyRestroom,
   "most-influencer": FaUsersViewfinder,
+  revelation: GiBeamsAura,
   "": IoPerson,
 };

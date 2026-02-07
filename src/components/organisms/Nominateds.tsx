@@ -31,7 +31,7 @@ const Nominateds = () => {
                 id={items.category.name}
               >
                 <div className="uppercase text-primaryDark text-sm">
-                  <p>Nominados a {items.category.name}</p>
+                  <p className="text-black">Nominados a {items.category.name}</p>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 w-full mt-4 gap-3 sm:gap-4 text-center">

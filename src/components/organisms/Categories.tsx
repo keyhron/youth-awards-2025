@@ -20,7 +20,7 @@ const Category = ({
   return (
     <button
       className={twJoin(
-        "border flex flex-col hover:shadow-md px-2 py-10 items-center justify-center text-sm font-light gap-5 bg-neutral-950 sm:px-6",
+        "border-2 flex flex-col hover:shadow-md px-2 py-10 items-center justify-center text-sm font-light gap-5 bg-[#FFE08A] sm:px-6",
         item.active ? "cursor-pointer" : "cursor-default",
         item.active ? "border-green-400" : "border-red-400"
       )}
@@ -31,10 +31,10 @@ const Category = ({
       }}
       {...rest}
     >
-      <Icon size={45} color="var(--color-primary)" />
+      <Icon size={45} color="var(--color-black)" />
 
       <div className="flex flex-col items-center gap-2">
-        <h2 className="font-bold text-white sm:text-xl font-orbitron capitalize">
+        <h2 className="font-bold text-black sm:text-xl font-orbitron capitalize">
           {getCategoryByNameId(item.nameId, categories)?.name}
         </h2>
 
@@ -46,7 +46,7 @@ const Category = ({
             )}
           />
 
-          <p className="text-[10px] sm:text-base">
+          <p className="text-[10px] sm:text-base text-neutral-600">
             {item.active ? "Premiado" : "No premiado"} este año
           </p>
         </div>
@@ -57,18 +57,22 @@ const Category = ({
 
 const Categories = () => {
   const categories = useAppSelector((state) => state.nominateds.categories);
+  const sortedCategories = useMemo(
+    () => [...categories].sort((a, b) => Number(b.active) - Number(a.active)),
+    [categories]
+  );
 
   return (
     <section className="pt-20 flex flex-col container mx-auto px-4">
       <Label labelTop="Premiando a" labelUnder="la juventud" />
 
       <div className="mt-8 uppercase text-primaryDark text-sm">
-        <p>Nuestros nominados se han categorizado por:</p>
+        <p className="text-black">Nuestros nominados se han categorizado por:</p>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 w-full mt-14 gap-3 sm:gap-4 text-center">
-        {categories.map((item, i) => (
-          <Category item={item} categories={categories} key={i} />
+        {sortedCategories.map((item, i) => (
+          <Category item={item} categories={sortedCategories} key={i} />
         ))}
       </div>
     </section>

@@ -25,6 +25,8 @@ const Votes = () => {
   );
   const votes = useAppSelector((state) => state.nominateds.votes);
 
+  console.log(votes)
+
   useEffect(() => {
     const unsubscribe = getVotes((snapshot) => {
       const newVotes = snapshot.docs.map((doc) => ({
@@ -49,7 +51,7 @@ const Votes = () => {
       acc.push(...Object.values(vote.votes));
       return acc;
     },
-    []);
+      []);
 
     //  Order all nominateds to update
     const nominatedsToUpdate = nominateds.reduce(function (
@@ -63,7 +65,7 @@ const Votes = () => {
 
       return acc;
     },
-    []);
+      []);
 
     // Order nominateds to update by category
     const nominatedsByCategory = categories.reduce(function (
@@ -77,7 +79,7 @@ const Votes = () => {
 
       return acc;
     },
-    []);
+      []);
 
     // Choose winners
     const winners = nominatedsByCategory.reduce(function (
@@ -92,7 +94,7 @@ const Votes = () => {
 
       return acc;
     },
-    []);
+      []);
 
     // Set winner to nominates to update
     const finalNominateds = nominatedsToUpdate.reduce(function (
@@ -105,7 +107,7 @@ const Votes = () => {
 
       return acc;
     },
-    []);
+      []);
 
     dispatch(addWinners(finalNominateds));
   };
@@ -128,7 +130,7 @@ const Votes = () => {
       }
       return acc;
     },
-    []);
+      []);
 
     dispatch(resetWinners(nominatedsToUpdate));
 

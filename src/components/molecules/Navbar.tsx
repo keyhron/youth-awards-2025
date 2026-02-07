@@ -17,29 +17,29 @@ const Navbar = () => {
     <>
       <nav
         className={twMerge(
-          "w-full py-6 text-sm text-white relative",
-          openMenu ? "bg-white text-black" : ""
+          "w-full py-6 text-sm text-black relative",
+          openMenu ? "bg-white" : ""
         )}
       >
         <div className="container px-4 mx-auto flex justify-between items-center h-full">
-          <Link href="/" className="text-lg font-orbitron">
+          <Link href="/" className="text-lg font-orbitron flex-1">
             Misión Guanare 63
           </Link>
 
-          <ul className="hidden text-md gap-3 sm:gap-12 md:flex md:gap-16 xl:gap-20">
+          <ul className="hidden text-md gap-3 flex-1 justify-center sm:gap-12 md:flex md:gap-16 xl:gap-20">
             {navbarOptions.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="uppercase font-medium">
                   {item.name}
                 </Link>
                 {item.href === pathname && (
-                  <div className="w-[50%] h-0.5 mt-0.5 rounded-full bg-white mx-auto" />
+                  <div className="w-[50%] h-0.5 mt-0.5 rounded-full mx-auto bg-black" />
                 )}
               </li>
             ))}
           </ul>
 
-          <div className="flex items-center gap-2">
+          <div className="flex-1 flex items-center justify-end gap-2">
             {enabledNewVote && (
               <Link href="/nuevo-voto" className="hidden md:flex">
                 <Button

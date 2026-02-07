@@ -20,7 +20,7 @@ const OldWinners = ({ data }: { data: IOldWinner[] }) => {
       {data.map((oldWinners, i) => (
         <Fragment key={i}>
           <div className="first:mt-8 mt-20 uppercase text-primaryDark text-sm">
-            <p>Ganadores de Premios Juventud {oldWinners.year}:</p>
+            <p className="text-black">Ganadores de Premios Juventud {oldWinners.year}:</p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 w-full gap-3 sm:gap-4 text-center mt-10">

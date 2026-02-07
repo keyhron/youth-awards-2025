@@ -14,14 +14,14 @@ export const metadata = {
   openGraph: {
     title: pageName,
     description: `La misión Guanare 63 te invita a nuestro gran evento para que disfrutes de la presencia de Jehová y de las nominaciones a los Premios Juventud ${year}, no te lo puedes perder`,
-    url: "https://juanbarrios.vercel.app",
+    url: "https://premios-juventud.vercel.app",
     type: "website",
     images: [
       {
-        url: "/images/hero-3.png",
-        width: 1200,
-        height: 630,
-        alt: "Crown image",
+        url: "/images/hero.jpg",
+        width: 1080,
+        height: 617,
+        alt: "Hero image",
       },
     ],
   },
@@ -41,7 +41,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${fontAudiowide.variable} ${fontOrbitron.variable} font-audiowide bg-black text-white`}
+        className={`${fontAudiowide.variable} ${fontOrbitron.variable} font-audiowide bg-[#FFF7CC] text-black`}
       >
         <StoreProvider initialState={initialData}>
           <RadioPlayer />

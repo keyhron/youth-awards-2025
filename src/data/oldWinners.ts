@@ -1,3 +1,106 @@
+const winners2025: Nominated[] = [
+  {
+    id: "3UxUiwORk8lpwAHkSEIM",
+    winner: true,
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-03%20at%201.35.55%20PM%20(3).jpeg?alt=media&token=73f03734-ebd1-41f7-b795-63a56f99bc33",
+    votes: 14,
+    name: "Génesis Mendoza",
+    category: "most-style",
+    created: 1739866481765,
+  },
+  {
+    id: "4XGk6AtJiKZ8Gs1t6ZAf",
+    name: "Luis Miguel",
+    votes: 25,
+    winner: true,
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-03%20at%201.35.56%20PM.jpeg?alt=media&token=62d5794a-661e-4708-bcb1-0288b06a468d",
+    category: "most-happy",
+    created: 1739865183932,
+  },
+  {
+    id: "BgmDksll9dfOlrqGSADI",
+    name: "Ali Barazarte",
+    winner: true,
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-03%20at%201.43.45%20PM.jpeg?alt=media&token=b0eb8aa5-23e3-43eb-ab6e-4097a98554f6",
+    votes: 17,
+    created: 1739863907472,
+    category: "most-collaborator",
+  },
+  {
+    id: "HbAwt1f1UDG5m3NbKRRT",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-19%20at%202.39.20%20PM.jpeg?alt=media&token=73b01eea-ea7a-4d07-8376-bc42f5fcc9a2",
+    winner: true,
+    category: "most-responsible",
+    votes: 13,
+    name: "Aaron Lozada",
+    created: 1740154517078,
+  },
+  {
+    id: "SLjxD8Aik8Unvm6aUGkp",
+    winner: true,
+    votes: 20,
+    created: 1739863907471,
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-03%20at%201.43.45%20PM.jpeg?alt=media&token=b0eb8aa5-23e3-43eb-ab6e-4097a98554f6",
+    category: "most-new",
+    name: "Ali Barazarte",
+  },
+  {
+    id: "YClkfSo5idtgKXeKaHgy",
+    name: "Lismar Medina",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-03%20at%201.35.52%20PM%20(1).jpeg?alt=media&token=2b11ae89-4f3c-4ce3-b90f-04f8e5e50b28",
+    votes: 20,
+    category: "most-photogenic",
+    created: 1739864924607,
+    winner: true,
+  },
+  {
+    id: "c09TLzph0RbjVB5tVmqq",
+    created: 1739866150339,
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-03%20at%201.35.54%20PM%20(5).jpeg?alt=media&token=fb6042d4-d1e4-4c60-aefd-b025dfd24424",
+    votes: 15,
+    category: "most-outstading",
+    name: "Jeshuarly Betancourt",
+    winner: true,
+  },
+  {
+    id: "nYtPsD9UNnJl35Lh6UXe",
+    winner: true,
+    created: 1739866640446,
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-03%20at%201.34.52%20PM.jpeg?alt=media&token=24d33e45-8517-4a11-a328-5bc659a93360",
+    category: "most-influencer",
+    name: "Maikel Vargas",
+    votes: 24,
+  },
+  {
+    id: "txvBSOGRX1wPFBy3LKhe",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-05%20at%201.45.35%20PM.jpeg?alt=media&token=c937a942-d59f-4545-b6de-087bd67f4adc",
+    winner: true,
+    votes: 20,
+    name: "Familia Montilla",
+    created: 1739496970149,
+    category: "parents-young",
+  },
+  {
+    id: "yYkaBSMRFXbzGso36CCE",
+    winner: true,
+    votes: 20,
+    name: "Sharom Betancourt",
+    created: 1739950516429,
+    category: "most-assist",
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/vote-app-e13ca.appspot.com/o/nominateds-2025%2FWhatsApp%20Image%202025-02-03%20at%201.35.53%20PM%20(2).jpeg?alt=media&token=c8b45221-1d39-49e5-a0fa-ecc01ca939e6",
+  },
+];
+
 const winners2024: Nominated[] = [
   {
     id: "4z0d6Tdgj0zAaLTz31kI",
@@ -256,6 +359,7 @@ const winners2022: Nominated[] = [
 ];
 
 const oldWinners = {
+  2025: winners2025,
   2024: winners2024,
   2023: winners2023,
   2022: winners2022,

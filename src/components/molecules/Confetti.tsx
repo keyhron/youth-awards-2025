@@ -19,7 +19,18 @@ const Confetti = () => {
       width={width}
       height={height}
       numberOfPieces={50}
-      colors={["#db3c30", "#352bc3"]}
+      colors={[
+        "#FFF7CC",
+        "#FFE08A",
+        "#FFD166",
+        "#FFC857",
+        "#F4B840",
+        "#E6A800",
+        "#D99200",
+        "#C6862C",
+        "#B8860B",
+        "#8C6D1F"
+      ]}
     />
   );
 };

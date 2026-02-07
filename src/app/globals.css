@@ -11,11 +11,11 @@
 }
 
 .custom-range {
-  @apply w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer;
+  @apply w-full h-2 bg-[#FFD166] rounded-lg appearance-none cursor-pointer;
 }
 
 .custom-range::-webkit-slider-thumb {
-  @apply w-4 h-4 bg-secondary rounded-full appearance-none cursor-pointer;
+  @apply w-4 h-4 bg-[#F4B840] rounded-full appearance-none cursor-pointer;
 }
 
 .custom-range::-moz-range-thumb {
