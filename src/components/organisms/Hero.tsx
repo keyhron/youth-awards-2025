@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative w-full flex justify-center flex-col bg-[url(/images/hero.jpg)] bg-cover bg-no-repeat bg-center"
+      className="relative w-full flex justify-center flex-col bg-[url(/images/hero.webp)] bg-cover bg-no-repeat bg-center"
     >
       <div className="w-full h-full text-black min-h-[100dvh] flex flex-col">
         <Navbar />

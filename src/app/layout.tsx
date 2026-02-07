@@ -18,10 +18,10 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero.jpg",
+        url: "/images/seo.webp",
         width: 1080,
         height: 617,
-        alt: "Hero image",
+        alt: "Trophies image",
       },
     ],
   },
