@@ -13,7 +13,7 @@ import {
   query,
   orderBy,
 } from "firebase/firestore";
-import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+// import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 
 export const getVotes = (callback: (item: QuerySnapshot) => void) => {
   try {
@@ -21,7 +21,7 @@ export const getVotes = (callback: (item: QuerySnapshot) => void) => {
       query(collection(database, "votes"), orderBy("created")),
       (querySnapshot) => {
         callback(querySnapshot);
-      }
+      },
     );
   } catch (error) {
     console.error("Error getting data:", error);
@@ -75,24 +75,24 @@ export const getInitialData = async (): Promise<InitialData | null> => {
   }
 };
 
-export const getImagesNominateds = async (): Promise<string[]> => {
-  try {
-    const imagesRef = ref(getStorage(), "nominateds-2025");
+// export const getImagesNominateds = async (): Promise<string[]> => {
+//   try {
+//     const imagesRef = ref(getStorage(), "nominateds-2025");
 
-    const { items } = await listAll(imagesRef);
+//     const { items } = await listAll(imagesRef);
 
-    const urls = await Promise.all(
-      items.map(async (item) => {
-        const url = await getDownloadURL(item);
-        return url;
-      })
-    );
-    return urls;
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-};
+//     const urls = await Promise.all(
+//       items.map(async (item) => {
+//         const url = await getDownloadURL(item);
+//         return url;
+//       })
+//     );
+//     return urls;
+//   } catch (error) {
+//     console.error(error);
+//     return [];
+//   }
+// };
 
 export const createVote = async (vote: Vote) => {
   try {
@@ -105,7 +105,7 @@ export const createVote = async (vote: Vote) => {
 
 export const updateNominateds = async (
   nominateds: Nominated[],
-  votesForDelete?: Vote[]
+  votesForDelete?: Vote[],
 ) => {
   try {
     const batch = writeBatch(database);
@@ -114,7 +114,7 @@ export const updateNominateds = async (
       const nominatedRef: DocumentReference = doc(
         database,
         "nominateds",
-        item.id
+        item.id,
       );
       batch.update(nominatedRef, { ...item });
     }
@@ -124,7 +124,7 @@ export const updateNominateds = async (
         const voteRef: DocumentReference = doc(
           database,
           "votes",
-          item.id as string
+          item.id as string,
         );
         batch.delete(voteRef);
       }
@@ -161,7 +161,7 @@ export const loginService = async ({
     const userCredential = await signInWithEmailAndPassword(
       authService,
       email,
-      password
+      password,
     );
     return userCredential;
   } catch (error) {

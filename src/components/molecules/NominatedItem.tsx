@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
+import { useAppSelector } from "@/lib/hooks";
 
 const NominatedItem = ({
   nominated,
@@ -18,6 +20,8 @@ const NominatedItem = ({
   onSelect?: (item: Nominated) => void;
   withCrowns?: boolean;
 }) => {
+  const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
+
   const validateClassname = () => {
     if (isVoting) {
       return isSelected ? "opacity-100" : "opacity-50 grayscale";
@@ -54,7 +58,9 @@ const NominatedItem = ({
           {nominated.name}
         </p>
 
-        {showVotes && nominated.winner && <p className="text-secondary">Con {nominated.votes} votos</p>}
+        {showVotes && (nominated.winner || isAuthenticated) && (
+          <p className="text-secondary">Con {nominated.votes} votos</p>
+        )}
       </div>
     </div>
   );
