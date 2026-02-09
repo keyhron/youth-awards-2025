@@ -32,6 +32,7 @@ export default async function CreateNominatedPage() {
     '/images/nominateds/2026/isamar.jpeg',
     '/images/nominateds/2026/william.jpeg',
     '/images/nominateds/2026/alianny.jpeg',
+    '/images/nominateds/2026/yorgelis.jpeg',
   ];
 
   return (
